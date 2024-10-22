@@ -1,0 +1,18 @@
+
+@function get-contrast-color($color, $pourcent) {
+    @if brightness($color) > 50 {
+        @return darken($color, $pourcent);
+    }
+    @else {
+        @return lighten($color, $pourcent);
+    }
+}
+
+@function get-intense-color($color, $pourcent) {
+    @if brightness($color) < 50 {
+        @return darken($color, $pourcent);
+    }
+    @else {
+        @return lighten($color, $pourcent);
+    }
+}

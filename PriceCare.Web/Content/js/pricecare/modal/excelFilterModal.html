@@ -1,0 +1,35 @@
+﻿<div class="modal-header">
+    <h3>The displayed data will now be extracted to an Excel file</h3>
+</div>
+<div class="modal-body">
+    <span class="title">By default, the extract will apply the display filters applied in the screen and format the data for convenient viewing in Excel
+Would you however wish to extract:</span>
+    <br />
+    <br />
+    <div>
+        <div class="form-group form-inline" ng-hide="noFilterOnCountry">
+            <input id="countriesCheckbox" type="checkbox" ng-model="response.allCountries" />
+            <label for="countriesCheckbox">All the countries ?</label>
+        </div>
+        <div class="form-group form-inline" ng-hide="noFilterOnProduct">
+            <input id="productsCheckbox" type="checkbox" ng-model="response.allProducts" />
+            <label for="productsCheckbox">All the products ?</label>
+        </div>
+        <div ng-hide="showAllEventsOption == false || noFilterOnEvent" class="form-group form-inline">
+            <input id="eventsCheckbox" type="checkbox" ng-model="response.allEvents" />
+            <label for="eventsCheckbox">All the events ?</label>
+        </div>
+        <div class ="form-group form-inline">
+            <input id="databaseCheckbox" type="checkbox" ng-model="response.databaseLike" />
+            <label for="databaseCheckbox">A database-like Excel file ?</label>
+
+</div>
+    </div>
+
+    <br />
+</div>
+
+<div class="cleaner padding-bottom">
+    <a class="button button-red float-right margin-left" href="" ng-click="cancel()">Cancel</a>
+    <a class="button button-green float-right margin-left" href="" ng-click="ok()">Save</a>
+</div>

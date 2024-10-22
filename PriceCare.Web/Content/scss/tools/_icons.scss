@@ -1,0 +1,324 @@
+﻿@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot?1eqxev');
+	src:url('../fonts/icomoon.eot?#iefix1eqxev') format('embedded-opentype'),
+		url('../fonts/icomoon.woff?1eqxev') format('woff'),
+		url('../fonts/icomoon.ttf?1eqxev') format('truetype'),
+		url('../fonts/icomoon.svg?1eqxev#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+a.icon{
+    cursor: pointer;
+}
+
+.icon, .icon-before:before, .icon-after:before, .icon-tooltip:before{
+    font-family: 'icomoon';
+    /* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+
+    font-size: 1.25em;
+
+    text-decoration: none;
+}
+
+.icon{
+    width: 1em;
+    overflow: hidden;
+}
+
+.icon:before{
+    text-indent: 0;
+}
+
+.icon-before, .icon-after{
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+}
+
+.icon-before{
+    padding-left: 1.5em;
+}
+
+.icon-before:before{
+    position: absolute;
+    left: 0;
+}
+
+.icon-after{
+    padding-right: 1.5em;
+}
+
+.icon-after:before{
+    position: absolute;
+    right: 0;
+}
+
+.icon-tooltip{
+    position: relative;
+}
+
+.icon-tooltip:before{
+    position: absolute;
+    left: -1.7em;
+    top: 0.3em;
+    font-size: 0.8em;
+}
+
+/*[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}*/
+
+/* icon size */
+
+.icon-size-1x-3:before{
+    top: -0.05em;
+    font-size: 1.3em;
+}
+.icon-size-1x-3.icon{
+    width: 1.3em;
+    height: 1.3em;
+}
+.icon-size-1x-3.icon-before{
+    padding-left: 1.8em;
+}
+.icon-size-1x-3.icon-after{
+    padding-right: 1.8em;
+}
+
+.icon-size-1x-5:before{
+    top: -0.1em;
+    font-size: 1.5em;
+}
+.icon-size-1x-5.icon{
+    width: 1.5em;
+    height: 1.5em;
+}
+.icon-size-1x-5.icon-before{
+    padding-left: 2em;
+}
+.icon-size-1x-5.icon-after{
+    padding-right: 2em;
+}
+
+.icon-size-2x:before{
+    font-size: 2em;
+    top: -0.15em;
+}
+.icon-size-2x.icon{
+    width: 2em;
+    height: 2em;
+}
+.icon-size-2x.icon-before{
+    padding-left: 2.5em;
+}
+.icon-size-2x.icon-after{
+    padding-right: 2.5em;
+}
+
+/* generate icon */
+.icon-thin-arrow:before {
+	content: "\e60f";
+}
+.icon-arrow-up:before {
+	content: "\e609";
+}
+.icon-arrow-left:before, .icon-collapsed:before {
+	content: "\e60a";
+}
+.icon-arrow-down:before, .icon-expanded:before {
+	content: "\e60b";
+}
+.icon-arrow-right:before {
+	content: "\e60c";
+}
+.icon-save:before {
+	content: "\e60d";
+}
+.icon-funnel:before, .icon-filter:before {
+	content: "\e60e";
+}
+.icon-excel:before {
+	content: "\e606";
+}
+.icon-dashboard:before {
+	content: "\e600";
+}
+.icon-graph:before {
+	content: "\e601";
+}
+.icon-cog:before {
+	content: "\e602";
+}
+.icon-pencil:before {
+	content: "\e603";
+}
+.icon-logout:before {
+	content: "\e604";
+}
+.icon-dataset:before, .icon-data:before {
+	content: "\e605";
+}
+.icon-unlocked:before {
+	content: "\e607";
+}
+.icon-locked:before {
+	content: "\e608";
+}
+.icon-logout:before {
+	content: "\e604";
+}
+.icon-setting:before {
+	content: "\e602";
+}
+.icon-edit:before {
+	content: "\e603";
+}
+.icon-mail:before {
+	content: "\e61c";
+}
+.icon-delete:before, .icon-cancel:before {
+	content: "\e61a";
+}
+.icon-lock:before {
+	content: "\e608";
+}
+.icon-unlock:before {
+	content: "\e607";
+}
+.icon-load:before {
+	content: "\e607";
+}
+.icon-information:before {
+	content: "\e614";
+}
+.icon-success:before, .icon-trick:before {
+	content: "\e618";
+}
+.icon-error, .icon-cross:before {
+	content: "\e617";
+}
+.icon-trash:before {
+	content: "\e61b";
+}
+.icon-remove:before, .icon-delete:before {
+	content: "\e61a";
+}
+.icon-search:before {
+	content: "\e610";
+}
+
+
+.icon-rules:before {
+	content: "\e615";
+}
+.icon-layers:before {
+	content: "\e616";
+}
+.icon-plus:before, .icon-add:before {
+	content: "\e619";
+    font-size: 1.1em;
+    left: 0.9em;
+    top: 0.2em;
+}
+
+.button-small-padding.button-icon:before{
+      font-size: 0.8em;
+        top: 0em;
+}
+
+.icon-info:before {
+	content: "\e614";
+}
+.icon-key:before {
+	content: "\e611";
+}
+.icon-tools:before {
+	content: "\e612";
+}
+.icon-clients:before {
+	content: "\e613";
+}
+
+.icon-table-dollars:before {
+	content: "\e62d";
+}
+.icon-currencies:before {
+	content: "\e61f";
+}
+.icon-magnifier:before {
+	content: "\e625";
+}
+.icon-table:before {
+	content: "\e626";
+}
+.icon-launch:before {
+	content: "\e61e";
+}
+.icon-net-impact:before {
+	content: "\e620";
+}
+.icon-net-data:before {
+	content: "\e621";
+}
+.icon-products:before {
+	content: "\e623";
+}
+.icon-sku:before {
+	content: "\e624";
+}
+.icon-map:before {
+	content: "\e627";
+}
+.icon-globe:before {
+	content: "\e628";
+}
+.icon-sales:before {
+	content: "\e629";
+}
+.icon-calandar:before, .icon-events:before {
+	content: "\e62a";
+}
+.icon-dollar:before, .icon-price:before {
+	content: "\e62b";
+}
+.icon-crm:before {
+	content: "\e61d";
+}
+
+/* My Class */
+
+.icon-excel, .icon-before-excel:before{
+    content : "\e606";
+}
+
+.icon-in-row{
+     font-size: 0.6em;
+     margin-left:1em;
+}
+
+.m-table-poprow {
+    .icon{
+        height: 1.2em;
+        line-height: 1.2em;
+    }
+    .icon-mail{
+        width: 1.4em;
+    }
+}

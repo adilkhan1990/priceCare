@@ -1,0 +1,15 @@
+﻿<header class="cleaner padding-bottom">
+    <h1 class="h1-height-button">Admin: Xls templates</h1>
+</header>
+
+<p>{{message}}</p>
+<br/>
+<table>
+    <tr ng-repeat="template in templates">
+        <td>{{template.displayName}}</td>
+        <td>
+            <a class="button" ng-click="upload(template)">Replace</a>
+            <a class="button" ng-click="download(template)">Download</a>
+        </td>        
+    </tr>
+</table>

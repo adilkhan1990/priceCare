@@ -1,0 +1,25 @@
+﻿<div class="m-selection-tree">
+   
+    <div ng-repeat="item in options.properties.items">
+        <div class="m-selection-tree-title">
+            <div>
+                <input id="{{item.name}}" name="{{item.name}}" type="radio" ng-model="item.value" ng-change="onValueChanged(item)" ng-value="item" />
+                <label for="{{item.name}}">{{item.text}}</label>
+                <a ng-show="item.value" href="" data-ng-click="selectAllChildren(item)">Select All</a>
+                <a ng-show="item.value" href="" data-ng-click="deSelectAllChildren(item)">Unselect All</a>
+            </div>
+        </div>
+
+        <div ng-show="item.value">
+            <div ng-if="item.items" ng-repeat="subItem in item.items" class="m-selection-tree-content">
+                <input id="{{subItem.name}}" name="{{subItem.name}}" type="checkbox" ng-model="subItem.value" ng-change="options.checkAtLeastOneItemSelected()" /> 
+                <label for="{{subItem.name}}">{{subItem.text}}</label>
+                <div ng-if="subItem.items" ng-repeat="subsubItem in subItem.items" class="m-selection-tree-content">
+                    <input id="{{subsubItem.name}}" name="{{subsubItem.name}}" type="checkbox" ng-model="subsubItem.value" ng-change="options.checkAtLeastOneItemSelected()" /> 
+                    <label for="{{subsubItem.name}}">{{subsubItem.text}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

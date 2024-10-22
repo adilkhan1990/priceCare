@@ -1,0 +1,34 @@
+﻿.l-main-logo{
+    background-color: $color-bg-logo;
+}
+
+.l-main-header-bar{
+    background: $color-main-light;
+    color: $color-grey;
+    border-color: $color-main-border-light;
+}
+
+.l-main-header-welcom{
+    .icon{
+        color: $color-grey;
+    }
+}
+
+.l-main-header-nav a{
+    color: $color-grey;
+}
+
+.l-main-footer{
+    background: $color-main;
+    color: $color-white;
+
+    a{
+        color: $color-white;
+    }
+}
+
+.l-main-footer-menu{
+    li{
+        border-color: $color-white;
+    }
+}

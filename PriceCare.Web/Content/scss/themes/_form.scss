@@ -1,0 +1,25 @@
+﻿
+input[type=text], input[type=password], input[type=email], textarea{
+    font-size: inherit;
+    color: $input-text-color;
+    background: $input-background-color;
+
+    border-color: $input-border-color;
+}
+
+input[type=text]:disabled, input[type=password]:disabled, input[type=email]:disabled, textarea:disabled{
+    background: $color-main-light;
+}
+
+input.input-validation-error[type=text], input.input-validation-error[type=password], input.input-validation-error[type=email], textarea.input-validation-error{
+    border-color: $color-red;
+}
+
+.field-validation-error{
+    color: $color-red;
+}
+
+.input-unit-value{
+    border-color: $input-border-color;
+    color: $color-main;
+}

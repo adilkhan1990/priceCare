@@ -1,0 +1,28 @@
+﻿<a href="" class="icon-before icon-delete position-close-popup" ng-click="cancel()">Close</a>
+<div class="modal-header">
+    <h3>Create scenario</h3>
+</div>
+<div class="modal-body">
+    <br />
+    <table>
+        <tr>
+            <td>
+                Name:
+                <span ng-hide="isNameUnique" class="field-validation-error">The name is already taken, please choose another one</span>
+                <span ng-show="isNameEmpty" class="field-validation-error">The name is required</span>
+            </td>
+            <td><input type="text" ng-model="model.name" data-ng-class="{'field-validation-error': isNameEmpty || !isNameUnique}" /></td>
+        </tr>
+        <tr>
+            <td>Comment:</td>
+            <td>
+                <textarea style="width: 235px; resize: none;" ng-model="model.comment"></textarea>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="cleaner padding-bottom">
+    <a class="button button-red float-right margin-left" href="" ng-click="cancel()">Cancel</a>
+    <a class="button button-green float-right margin-left" href="" ng-click="ok()">Save</a>
+</div>

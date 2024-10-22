@@ -1,0 +1,36 @@
+﻿@model PriceCare.Web.Models.GeneralInformationsViewModel
+@{
+    ViewBag.Title = "Confirm Account";
+    ViewBag.BodyClass = "login";
+}
+
+<header id="mainHeader">
+    <h1>@ViewBag.Title</h1>
+</header>
+
+<section class="m-login cleaner">
+    <!-- Left Panel -->
+    <div class="m-login-description">
+        @Html.Action("GetLeftPanel", "Account")
+    </div>
+    
+    <!-- Right Panel -->
+    <div class="m-login-form">
+        <h3>Account confirmation</h3>
+        <div>
+            <p>
+                Thank you for confirming your account. Please
+                @Html.ActionLink("click here to log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+            </p>
+        </div>
+    </div>
+</section>
+
+@*<section class="whiteBg">
+    <div>
+        <p>
+            Thank you for confirming your account. Please
+             @Html.ActionLink("click here to log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+        </p>
+    </div>
+</section>*@

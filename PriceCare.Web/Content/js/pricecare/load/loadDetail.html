@@ -1,0 +1,55 @@
+﻿<header class="cleaner padding-bottom">    
+    <a class="button button-border button-green button-icon icon-save float-right" style="margin-right: 10px;" href="" ng-click="upload()">Upload GCPS</a>  
+    <a class="button button-border button-green button-icon icon-save float-right" style="margin-right: 10px;" href="/api/load/excel/get/sku">Download GCPS</a>  
+    <a class="button float-right" style="margin-right: 10px;" href="/#/data/load">Back</a>
+    <h1 class="h1-height-button">Load: {{detail.name}}</h1>
+</header>
+
+<table class="table-status">
+    <tr>
+        <td class="m-table-status-title">Data<span class="m-table-status-help">?</span></td>
+        <td class="m-table-status-title">Status<span class="m-table-status-help">?</span></td>
+        <td class="m-table-status-title">Next Action<span class="m-table-status-help">?</span></td>
+    </tr>
+    <tr ng-repeat="item in detail.items">
+        <td>{{item.name}} <i ng-if="item.step <= maxValidated && (item.name == 'Volume' || item.name == 'Net Data')"><a href="/#/data/loadVolumeScenario">Scenario</a> </i></td>
+        <td>
+            <span ng-class="{'m-table-status m-table-status-loading': item.status == 1,'m-table-status m-table-status-not-validated': item.status == 2,'m-table-status m-table-status-validated': item.status == 3, 'm-table-status m-table-status-error': item.status == 4}">
+                <span class="m-table-status-text">{{item.statusName}}</span> <br />
+                <em class="m-table-status-date">Updated: {{item.lastUpdateDate | date:'MM-dd-yyyy HH:mm'}}</em><br/>
+                <em ng-if="item.rowsToValidate>0">Remaining rows to validate: {{item.rowsToValidate}}</em>
+            </span>
+        </td>
+        <td ng-if="item.status == 2">
+            <a ng-if="item.step <= maxValidated && item.name == 'Currencies'" ng-href="/#/data/dimensions/currencies/validate/{{loadId}}" class="button button-green button-small-padding text-align-center">Continue</a>
+            <a ng-if="item.step <= maxValidated && item.name == 'Country'" ng-href="/#/data/dimensions/countries/validate/{{loadId}}" class="button button-green button-small-padding text-align-center">Continue</a>
+            <a ng-if="item.step <= maxValidated && item.name == 'Product'" ng-href="/#/data/dimensions/products/validate/{{loadId}}" class="button button-green button-small-padding text-align-center">Continue</a>
+            <a ng-if="item.step <= maxValidated && item.name == 'Price Types'" ng-href="/#/data/dimensions/pricetypes/validate/{{loadId}}" class="button button-green button-small-padding text-align-center">Continue</a>
+            <a ng-if="item.step <= maxValidated && item.name == 'Net Data'" ng-href="/#/data/dimensions/listToSales/validate/{{loadId}}" class="button button-green button-small-padding text-align-center">Continue</a>
+            <a ng-if="item.step <= maxValidated && item.name == 'Volume'" ng-href="/#/data/volumes/validate/{{loadId}}" class="button button-green button-small-padding text-align-center">Continue</a>
+            <a ng-if="item.step <= maxValidated && item.name == 'Event'" ng-href="/#/data/events/validate/{{loadId}}" class="button button-green button-small-padding text-align-center">Continue</a>
+            <a ng-if="item.step <= maxValidated && item.name == 'Rule'" ng-href="/#/data/rules/validate/{{loadId}}" class="button button-green button-small-padding text-align-center">Continue</a>
+            <a ng-if="item.step <= maxValidated && item.name == 'Price'" ng-href="/#/data/prices/validate/{{loadId}}" class="button button-green button-small-padding text-align-center">Continue</a>
+            <a ng-if="item.step <= maxValidated && item.name == 'SKU'" ng-href="/#/data/dimensions/sku/validate/{{loadId}}" class="button button-green button-small-padding text-align-center">Continue</a>
+
+            <a ng-if="item.step <= maxValidated" class="button button-red button-small-padding text-align-center" ng-click="skip(item.id)">Skip</a>
+        </td> 
+        <td ng-if="item.status == 3">
+            <a ng-if="item.name == 'Currencies'" class="button button-green button-small-padding text-align-center" href="/#/data/dimensions/currencies">Visualise data</a>
+            <a ng-if="item.name == 'Country'" class="button button-green button-small-padding text-align-center" href="/#/data/dimensions/countries">Visualise data</a>
+            <a ng-if="item.name == 'Product'" class="button button-green button-small-padding text-align-center" href="/#/data/dimensions/products">Visualise data</a>
+            <a ng-if="item.name == 'SKU'" class="button button-green button-small-padding text-align-center" href="/#/data/dimensions/sku">Visualise data</a>
+            <a ng-if="item.name == 'Price Types'" class="button button-green button-small-padding text-align-center" href="/#/data/dimensions/pricetypes">Visualise data</a>
+            <a ng-if="item.name == 'Net Data'" class="button button-green button-small-padding text-align-center" href="/#/data/dimensions/listToSales">Visualise data</a>
+            <a ng-if="item.name == 'Volume'" class="button button-green button-small-padding text-align-center" href="/#/data/volumes">Visualise data</a>
+            <a ng-if="item.name == 'Event'" class="button button-green button-small-padding text-align-center" href="/#/data/events">Visualise data</a>
+            <a ng-if="item.name == 'Rule'" class="button button-green button-small-padding text-align-center" href="/#/data/rules">Visualise data</a>
+            <a ng-if="item.name == 'Price'" class="button button-green button-small-padding text-align-center" href="/#/data/prices">Visualise data</a>
+        </td>
+        <td ng-if="item.status == 4">
+            <span>Error when gathering data</span><br />
+            <em>Please try again or contact the support</em><br />
+        </td>
+    </tr>
+
+</table>

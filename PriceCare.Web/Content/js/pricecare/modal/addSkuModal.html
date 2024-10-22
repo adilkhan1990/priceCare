@@ -1,0 +1,61 @@
+﻿<a href="" class="icon-before icon-delete position-close-popup" ng-click="cancel()">Close</a>
+<div class="modal-header">
+    <h3>Add new SKU</h3>
+</div>
+<div class="modal-body">    
+    <div class="m-form m-form-display-inline">
+        <div class="m-form-row">
+            <div class="m-form-row-label">
+                Device:
+            </div>
+            <div class="m-form-row-content">
+                <div class="m-filter-control-displayoptions-option m-filter-control-full-width" op-field options="formulationOptions"></div>
+            </div>
+        </div>
+        <div class="m-form-row">
+            <div class="m-form-row-label">
+                Name:
+            </div>
+            <div class="m-form-row-content">
+                <input type="text" ng-model="sku.name" />
+            </div>
+        </div>
+        <div class="m-form-row">
+            <div class="m-form-row-label">
+                Product number:
+            </div>
+            <div class="m-form-row-content">
+                <input type="text" ng-model="sku.productNumber" />
+            </div>
+        </div>
+        <div class="m-form-row">
+            <div class="m-form-row-label">
+                Dosage:
+            </div>
+            <div class="m-form-row-content">
+                <input type="text" ng-model="sku.dosage" only-digits />
+            </div>
+        </div>
+        <div class="m-form-row">
+            <div class="m-form-row-label">
+                Pack size:
+            </div>
+            <div class="m-form-row-content">
+                <input type="text" ng-model="sku.packSize" only-digits />
+            </div>
+        </div>
+        <div class="m-form-row">
+            <div class="m-form-row-label">
+                Unit:
+            </div>
+            <div class="m-form-row-content">
+                <div data-op-field data-options="factorUnitOptions"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cleaner padding-bottom">
+    <a class="button button-red float-right margin-left" href="" ng-click="cancel()">Cancel</a>
+    <a class="button button-green float-right margin-left" href="" ng-click="ok()">Save</a>
+</div>

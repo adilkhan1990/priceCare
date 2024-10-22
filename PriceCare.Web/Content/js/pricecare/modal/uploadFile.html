@@ -1,0 +1,25 @@
+﻿<div class="modal-header">
+    <h3>Upload a file</h3>
+</div>
+<div class="modal-body">
+
+    <input type="hidden" name="siteId" value="{{siteId}}" />
+
+    <div>
+        <label>File:</label>
+
+        <div data-input-file data-onfilechange="onFileChange(file)" ng-class="{error: !isValidFile || !isValidFileExtension}"></div>
+
+        <span class="error" ng-hide="isValidFile">The file is required</span>
+        <br />
+        <span class="error" ng-hide="isValidFileExtension">This file is not a valid file, please check that the extension belongs to one of those :
+            <span ng-repeat="ext in extentions">{{ext}} <span ng-hide="$last">, </span></span>
+        </span>
+        <br />
+    </div>
+</div>
+
+<div class="cleaner padding-bottom">
+    <a class="button button-red float-right margin-left" href="" ng-click="cancel()">Cancel</a>
+    <a class="button button-green float-right margin-left" href="" ng-click="ok()">Upload a file</a>
+</div>

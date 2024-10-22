@@ -1,0 +1,42 @@
+﻿body.error{
+    background: #fafbfc;
+}
+
+body.error #error{
+    text-align: center;
+    padding: 50px 0;
+}
+
+body.error #error img{
+    padding: 60px 0;
+}
+
+body.error .content ul{
+    width: 550px;
+    margin: 0 auto;
+    padding: 30px 0 100px;
+    text-align: center;
+}
+
+body.error .content ul li{
+    float: left;
+    border-right: 1px #ebeff3 solid;
+    border-left: 1px #ebeff3 solid;
+    height: 24px;
+    line-height: 23px;
+    list-style: none;
+}
+
+body.error .content ul li:last-child{
+    border-right: 0;
+}
+
+body.error .content ul li:first-child{
+    border-left: 0;
+}
+
+body.error .content ul li a{
+    text-decoration: none;
+    padding: 0 20px;
+    color: #37485b;
+}

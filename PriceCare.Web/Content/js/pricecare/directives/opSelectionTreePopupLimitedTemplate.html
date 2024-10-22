@@ -1,0 +1,10 @@
+﻿<div class="m-custom-select-dropdown-big cleaner" ng-style="dropStyle()">
+    <span class="m-custom-select-dropdown-big-arrow" ng-style="getArrowStyle()"></span>
+    <div class="text-align-center">
+        <a class="button button-border button-green button-icon icon-filter" href="" ng-click="onApplyFilters()" ng-class="{'is-disabled': !atLeastOneSelected}">
+            <span ng-show="atLeastOneSelected">Apply Filters</span>
+            <span ng-hide="atLeastOneSelected">Choose at least one item</span>
+        </a>
+    </div>
+    <div data-op-selection-tree-limited data-options="options"></div>
+</div>

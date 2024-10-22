@@ -1,0 +1,9 @@
+﻿<div class="notification notification-information notification-icon icon-information">
+    {{options.affectedCells}} {{options.predescription}}
+    <a href="" ng-click="toggleFlyout($event)" ng-hide="options.hideToggle">{{linkText}}</a> {{options.postdescription}} 
+    <a href="" ng-click="apply()" ng-hide="hideApply">{{options.actionText}}</a>
+    <a href="" ng-click="reject()" ng-show="options.displayReject"> / {{options.actionRejectText}}</a>
+    <div ng-if="showFlyout">
+        <div data-op-smart-resolution-fly-out data-options="flyoutOptions" data-close="closeFlyouts()" data-save="saveRules()"></div>
+    </div>
+</div>

@@ -1,0 +1,81 @@
+﻿@using PriceCare.Web.Models
+@model LoginViewModel
+
+@{
+    ViewBag.Title = "Log in";
+    ViewBag.BodyClass = "login";
+}
+
+@section script {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".validateOnEnter").keypress(function (event) {
+                if (event.which == 13) {
+                    event.preventDefault();
+                    document.getElementById('login_form').submit();
+                }
+            });
+        });
+
+</script>
+}
+
+<header>
+    <h1>Login</h1>
+</header>
+
+
+@*@if (ViewData.ModelState.Values.Any(m => m.Errors.Count > 0))
+{
+    <aside class="notification red">
+        <strong>Error - </strong> We are having troubbles logging you in. This might be due to one of the following errors:
+        @Html.ValidationSummary()
+    </aside>
+}*@
+
+<section class="m-login cleaner">
+
+    <!-- Left Panel -->
+    <div class="m-login-description">
+        @Html.Action("GetLeftPanel", "Account")
+    </div>
+
+    <!-- Right Panel -->
+    <div class="m-login-form">
+        <h3>Login</h3>
+        <p>Please login below or @Html.ActionLink("request access", "RequestAccess")</p>
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", id="login_form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div>
+                <div class="m-login-label">
+                    <label for="Username">Your username</label>
+                    @Html.ValidationMessageFor(m => m.Username, "", new { @class = "error" })
+                </div>
+                @Html.TextBoxFor(m => m.Username, new {@class="validateOnEnter"})
+                
+            </div>
+            <div>
+                <div class="m-login-label">
+                    <label for="Password">Your password</label>
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "error" })
+                </div>
+                @Html.PasswordFor(m => m.Password, new {@class="validateOnEnter"})
+            </div>
+            @*<div>
+                    <input type="checkbox" value="true" name="RememberMe" id="RememberMe" data-val-required="the field remember me? is required" data-val="true">
+                    <label for="RememberMe">Remember me?</label>
+                </div>*@
+            <div class="text-align-right">
+                <a class="button button-border button-blue button-icon icon-unlocked" onclick="document.getElementById('login_form').submit()">Login</a>
+            </div>
+            <div class="text-align-right">
+                @Html.ActionLink("Forgot password?", "ForgotPassword")
+            </div>
+        }
+    </div>
+
+
+    <!-- Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl }) -->
+
+</section>

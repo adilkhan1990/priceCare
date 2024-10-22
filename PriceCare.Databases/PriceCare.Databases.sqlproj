@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>PriceCare.Databases</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{f952aa52-8180-41e3-b0e5-d1022787c81e}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureV12DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>PriceCare.Databases</RootNamespace>
+    <AssemblyName>PriceCare.Databases</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <!-- Default to the v10.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="dbo\Functions" />
+    <Folder Include="dbo\User Defined Types\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Version.sql" />
+    <Build Include="dbo\Tables\DimensionType.sql" />
+    <Build Include="dbo\Tables\Currency.sql" />
+    <Build Include="dbo\Tables\Data.sql" />
+    <Build Include="dbo\Tables\DataType.sql" />
+    <Build Include="dbo\Tables\Geography.sql" />
+    <Build Include="dbo\Tables\GeographyLink.sql" />
+    <Build Include="dbo\Tables\Invitation.sql" />
+    <Build Include="dbo\Tables\DimensionDictionary.sql" />
+    <Build Include="dbo\Tables\SKU.sql" />
+    <Build Include="dbo\Tables\CurrencyBudget.sql" />
+    <Build Include="dbo\Tables\Unit.sql" />
+    <Build Include="dbo\Tables\ProductUnit.sql" />
+    <Build Include="dbo\Tables\ISO_4217_Currency.sql" />
+    <Build Include="dbo\Tables\GeneralInformation.sql" />
+    <Build Include="dbo\Tables\CurrencySpot.sql" />
+    <Build Include="dbo\Tables\IrpRuleCalculation.sql" />
+    <Build Include="dbo\Tables\GprmRule.sql" />
+    <Build Include="dbo\Tables\GprmSubRule.sql" />
+    <Build Include="dbo\Tables\GprmBasket.sql" />
+    <Build Include="dbo\Tables\GprmRulePeriodicity.sql" />
+    <Build Include="dbo\Stored Procedures\Fill_Rules_MR_Extract.sql" />
+    <Build Include="dbo\Functions\GetData.sql" />
+    <Build Include="dbo\Tables\GprmReviewedPrice.sql" />
+    <Build Include="dbo\Tables\GprmReferencedPrice.sql" />
+    <Build Include="dbo\Stored Procedures\reviewed_price.sql" />
+    <Build Include="dbo\Functions\GetGprmRule.sql" />
+    <Build Include="dbo\Functions\GetGprmReviewedPrice.sql" />
+    <Build Include="dbo\Tables\reviewed.sql" />
+    <Build Include="dbo\Tables\Referenced.sql" />
+    <Build Include="dbo\Tables\ListToSalesImpact.sql" />
+    <Build Include="dbo\Tables\ListToSales.sql" />
+    <Build Include="dbo\Tables\gco_submn_product_vw.sql" />
+    <Build Include="dbo\Tables\gco_submn_country_vw.sql" />
+    <Build Include="dbo\Tables\gco_sap_curr_exchange_rate_vw.sql" />
+    <Build Include="dbo\Tables\gco_gprm_price_list_vw.sql" />
+    <Build Include="dbo\Tables\gco_gprm_cntry_price_ref_vw.sql" />
+    <Build Include="dbo\Tables\gco_gprm_cntry_price_cal_vw.sql" />
+    <Build Include="dbo\Tables\gco_gprm_billed_so_vw - Conso SKU.sql" />
+    <Build Include="dbo\Tables\gco_gprm_agg_prod_sales_vol_vw.sql" />
+    <Build Include="dbo\Tables\CurrencySpot_bckp.sql" />
+    <Build Include="dbo\Functions\GetGprmSubRule.sql" />
+    <Build Include="dbo\Functions\GetGprmReferencedPrice.sql" />
+    <Build Include="dbo\Functions\GetGprmBasket.sql" />
+    <Build Include="dbo\Stored Procedures\RulePeriod.sql" />
+    <Build Include="dbo\Stored Procedures\ReviewedP.sql" />
+    <Build Include="dbo\Stored Procedures\ReferencedP.sql" />
+    <Build Include="dbo\Stored Procedures\LOAD_SPOT_RATES.sql" />
+    <Build Include="dbo\Stored Procedures\LOAD_PRICES.sql" />
+    <Build Include="dbo\Stored Procedures\insert_new_skus_from_GCOODS.sql" />
+    <Build Include="dbo\Functions\GetSaveTypeId.sql" />
+    <Build Include="dbo\Functions\GetNotSpecifiedDimensionId.sql" />
+    <Build Include="dbo\Functions\GetPriceMapVersion.sql" />
+    <Build Include="dbo\Functions\GetGprmRuleVersion.sql" />
+    <Build Include="dbo\Functions\GetDimensionType.sql" />
+    <Build Include="dbo\Functions\GetCurrencySpotMaxVersion.sql" />
+    <Build Include="dbo\Stored Procedures\LOAD_CALENDAR.sql" />
+    <Build Include="dbo\Tables\RequestAccess.sql" />
+    <Build Include="dbo\Tables\Load.sql" />
+    <Build Include="dbo\Tables\LoadStatus.sql" />
+    <Build Include="dbo\User Defined Types\IdArray.sql" />
+    <Build Include="dbo\Functions\GetDataVersion.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateCountries.sql" />
+    <Build Include="dbo\Stored Procedures\GetCountries.sql" />
+    <Build Include="dbo\Functions\GetListToSalesVersion.sql" />
+    <Build Include="dbo\Functions\GetListToSalesImpact.sql" />
+    <Build Include="dbo\Tables\LoadItem.sql" />
+    <Build Include="dbo\Tables\InvitationRole.sql" />
+    <Build Include="dbo\Tables\UserSettings.sql" />
+    <Build Include="dbo\Tables\ExcelDownloadBuffer.sql" />
+    <Build Include="dbo\Tables\LoadVolumeScenario.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="dbo\Tables\PriceCare.Databases.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\IrpRuleList.sql" />
+    <Build Include="dbo\Tables\PriceType.sql" />
+    <Build Include="dbo\Tables\Product.sql" />
+    <Build Include="dbo\Tables\GprmMath.sql" />
+    <Build Include="dbo\Tables\GprmRuleType.sql" />
+    <Build Include="dbo\Tables\Save.sql" />
+    <Build Include="dbo\Tables\SaveType.sql" />
+    <Build Include="dbo\Tables\SaveVersion.sql" />
+  </ItemGroup>
+</Project>

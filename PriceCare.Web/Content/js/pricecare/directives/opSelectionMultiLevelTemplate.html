@@ -1,0 +1,27 @@
+﻿<span class="m-custom-select">
+    <span class="m-custom-select-dropdown">
+        <span class="m-custom-select-dropdown-align" ng-click="toggleMenu()">{{getSelectedItemText()}}</span>
+        <span class="m-custom-select-dropdown-container" ng-show="showMenu" ng-style="dropStyle">
+            <span class="m-custom-select-dropdown-container-arrow"></span>
+            <!-- parent first level -->
+            <ul style="overflow: auto; max-height: 400px;" ng-show="showParent">
+                <li ng-repeat="item in items" ng-click="onParentClick(item)" ng-class="{'is-selected' : item.selected}" ng-class="item.class">
+                    {{item.text}}
+                    <span class="m-custom-select-dropdown-right">
+                        {{item.displayRight}}
+                    </span>
+                </li>
+            </ul>
+            <!-- children of parent first level -->
+            <ul style="overflow: auto; max-height: 400px;" ng-hide="showParent">
+                <li class="back" ng-click="goBackToParents()">Go Back</li>
+                <li ng-repeat="item in lastParentSelected.items" ng-click="onItemClicked(item)" ng-class="{'is-selected' : item.selected}" ng-class="item.class">
+                    {{item.text}}
+                    <span class="m-custom-select-dropdown-right">
+                        {{item.displayRight}}
+                    </span>
+                </li>
+            </ul>
+        </span>
+    </span>
+</span>

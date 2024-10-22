@@ -1,0 +1,12 @@
+﻿<header class="cleaner padding-bottom">
+    <h1 class="h1-height-button">Simulations</h1>
+</header>
+
+<div op-filter options="filterOptions"></div>
+<br />
+<br />
+<table op-table table="table"></table>
+
+<div class="notification notification-warning" ng-if="!table && showBadFilter">
+    Sorry there are no results to display. Please broaden your filter parameters.
+</div>

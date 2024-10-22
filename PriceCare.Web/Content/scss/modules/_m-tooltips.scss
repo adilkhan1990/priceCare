@@ -1,0 +1,23 @@
+﻿.tooltip{
+    position: relative;
+}
+
+.tooltip:hover:after{
+    background: #333;
+    background: rgba(0,0,0,.8);
+    border-radius: 5px;
+    bottom: 54px;
+    color: #fff;
+    content: attr(title-tooltip);
+    left: 20%;
+    top: -2.5em;
+    min-height: 35px;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 98;
+    width: auto;
+    text-indent: 0;
+    text-transform: none;
+
+    white-space: nowrap;
+}

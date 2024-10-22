@@ -1,0 +1,52 @@
+﻿<header class="cleaner padding-bottom">    
+    <a class="button button-border button-green button-icon icon-save float-right margin-left" href="#/data/dimensionDictionary">Manage dictionaries</a>
+    <button class="button button-icon button-icon-only icon-add button-blue margin-left float-right margin-left tooltip" ng-disabled="!canStartLoad" ng-class="{'is-disabled': !canStartLoad}" title-tooltip="Start a load" ng-click="create()">&nbsp;</button>
+    <h1 class="h1-height-button">Data: Loads</h1>
+</header>
+
+<div data-op-filter data-options="filterOptions"></div>
+
+<br/><br />
+
+<table class="table-status">
+    <tr>
+        <td class="m-table-status-title">Initiated<span class="m-table-status-help">?</span></td>
+        <td class="m-table-status-title">Load Name<span class="m-table-status-help">?</span></td>
+        <td class="m-table-status-title">Status<span class="m-table-status-help">?</span></td>
+        <td class="m-table-status-title">Next Action<span class="m-table-status-help">?</span></td>
+    </tr>
+    <tr ng-repeat="load in loads">
+        <td>{{load.creationDate | date:'MM-dd-yyyy HH:mm'}}<br />  by {{load.userName}}</td>
+        <td>{{load.name}}</td>
+        <td>
+            <span ng-class="{'m-table-status m-table-status-loading': load.status == 1,'m-table-status m-table-status-not-validated': load.status == 2,'m-table-status m-table-status-validated': load.status == 3, 'm-table-status m-table-status-error': load.status == 4 || load.status == 5}">
+                <span class="m-table-status-text">{{load.statusName}}</span><br />
+                <em class="m-table-status-date">Updated: {{load.lastUpdateDate | date:'MM-dd-yyyy HH:mm'}}</em>
+            </span>
+        </td>
+        <td ng-if="load.status == 1">
+            <span>Gathering data. <em>Check again soon...</em></span>
+            <a class="button button-small-padding" ng-click="refresh()">Refresh</a>            
+        </td>
+        <td ng-if="load.status == 2">
+            <a class="button button-red button-small-padding text-align-center" ng-click="cancel(load)">Discard</a> <a class="button button-green button-small-padding text-align-center" href="/#/data/load/{{load.id}}">Continue</a>
+        </td>
+        <td ng-if="load.status == 3">
+            <a class="button button-green button-small-padding text-align-center" href="/#/data/load/{{load.id}}">Visualise data</a>
+        </td>
+        <td ng-if="load.status == 4">
+            <span>Error when gathering data</span><br />
+            <em>Please try again or contact the support</em><br />
+        </td>
+        <td ng-if="load.status == 5">
+            <span>Load has been cancelled</span><br />
+            <em>Please try again or contact the support</em><br />
+        </td>
+
+    </tr>
+
+</table>
+
+<div ng-if="paginationOptions" class="m-table-loadmore" ng-show="paginationOptions.canLoadMore" ng-click="paginationOptions.getData()">
+    <a class="icon-before icon-load" href="">{{paginationOptions.counterText}}</a>
+</div>

@@ -1,0 +1,72 @@
+input, select, textarea {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-family: inherit;
+}
+
+input[type=text], input[type=password], input[type=email], textarea{
+    padding: 0.85em 1.2em;
+    border: 1px solid;
+
+    @include border-radius(0.25em);
+}
+
+.input-unit, .input-search{
+    position: relative;
+    display: inline-block;
+}
+
+.input-unit input{
+    padding-right: 6em;
+}
+
+.input-unit-value{
+    position: absolute;
+    display: block;
+    height: 100%;
+    right: 0;
+    top: 0;
+
+    line-height: 3.1em;
+    width: 5em;
+
+    border-left: 1px solid;
+
+    text-align: center;
+
+    color:$color-main;
+}
+
+.m-filter-control-displayoptions{
+    .input-unit input[type="text"]{
+        padding-right: 6em;
+    }
+
+    .input-unit-value{
+        line-height: 2.1em;
+    }
+}
+
+.input-icon{
+    font-family: 'icomoon';
+    /* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+
+    text-decoration: none;
+}
+
+.input-search {
+    .input-icon{
+        position: absolute;
+        margin: 1em;
+    }
+    input{
+        padding-left: 2.5em;
+    }
+}

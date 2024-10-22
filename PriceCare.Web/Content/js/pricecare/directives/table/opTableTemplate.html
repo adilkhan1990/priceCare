@@ -1,0 +1,14 @@
+﻿<div>
+    <div ng-if="table.columnFilteringOptions" class="m-table-pagination cleaner">
+        <a class="m-table-pagination-before" href="" ng-click="goLeft()">Before</a>
+        <a class="m-table-pagination-after" href="" ng-click="goRight()">After</a>
+        <span class="m-table-pagination-title"><span style="font-style: italic;">{{paginationHeaderPre}}</span>{{paginationHeader}}<span style="font-style: italic;">{{paginationHeaderPost}}</span></span>
+    </div>
+    <table class="m-table-poprow">
+        <tr data-op-row data-row="row" data-table="table" ng-repeat="row in (table.rows | tableRowFilter)"></tr>
+    </table>
+    
+    <div ng-if="table.paginationOptions" class="m-table-loadmore" ng-show="table.paginationOptions.canLoadMore" ng-click="table.paginationOptions.getData()">
+        <a class="icon-before icon-load" href="">{{table.paginationOptions.counterText}}</a>
+    </div>
+</div>

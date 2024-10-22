@@ -1,0 +1,117 @@
+﻿.button{
+    position: relative;
+    display: inline-block;
+    padding: 0.9em;    
+    line-height: normal;
+    border: 0;
+
+    background: $color-main;
+    color: $color-white;
+
+    @include border-radius(0.25em);
+
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button-border{
+    border-left: 3.2em solid;
+}
+
+.button:hover{
+    cursor: pointer;
+}
+
+.button.is-disabled{
+    /*background: $color-grey-dark;
+    color: $color-grey-light;*/
+
+    @include custom-opacity(0.7);
+}
+
+.button.is-disabled:hover{
+    cursor: default;
+}
+
+.button-full-width{
+    width: 100%;
+}
+
+.button-small-padding{
+    padding: 0.4em;
+}
+
+/* icons */
+
+.button-icon{
+    padding-left: 3em;
+}
+.button-icon.button-small-padding{
+    padding-left: 2.2em;
+}
+
+.button-icon:before{
+    font-family: 'icomoon';
+    /* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+    width: 1em;
+    height: 100%;
+    display: inline-block;
+
+    font-size: 1.25em;
+
+    position: absolute;
+
+    top: 0;
+    left: 0.8em;
+    text-align: center;
+    line-height: 2.5em;
+
+    @include border-top-left-radius(0.25em);
+    @include border-bottom-left-radius(0.25em);
+}
+
+.button-icon.button-border{
+    padding-left: 1em;
+}
+
+.button-icon.button-border:before{
+    left: -2.5em;
+    width: 2.5em;
+}
+
+/*.button-icon-only{
+    height: 3.1em;
+    line-height: 1.25em;
+
+    .icon{
+        font-size: 1.25em;
+    }
+}*/
+
+.button-icon-only{
+    width: 1em;
+}
+
+.button-icon-only.button-icon{
+    padding-left: 2.25em;
+}
+
+.button-icon-only:after{
+    content: '';
+}
+
+/*.button-icon-only{
+    width: 2em;
+    height: 3.25em;
+    overflow: hidden;
+    padding-left: 2em;
+}
+
+.button-icon-only:before{
+    position: static;
+    line-height: 1.25em;
+    margin-bottom: 1em;
+}*/

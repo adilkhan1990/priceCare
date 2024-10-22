@@ -1,0 +1,25 @@
+﻿<div class="modal-header">
+    <h3>Add/Remove Role</h3>
+</div>
+<div class="modal-body">
+    <br />
+    <div>
+        <div class="m-login-label">
+            <label>Roles:</label>
+            <span class="field-validation-error" ng-hide="isValidRole">Please choose at least one role</span>
+            <span class="field-validation-error" ng-hide="isValidRolePersonalChange">You can't remove the roles Admin and System administrator for yourself</span>
+        </div>
+        <br />
+        <div class="form-group form-inline" ng-repeat="role in roles">
+            <input id="roleName-{{$index}}" type="checkbox" ng-model="rolesSelected[$index]" />
+            <label for="roleName-{{$index}}">{{role.name}}</label>
+        </div>
+    </div>
+
+    <br />
+</div>
+
+<div class="cleaner padding-bottom">
+    <a class="button button-red float-right margin-left" href="" ng-click="cancel()">Cancel</a>
+    <a class="button button-green float-right margin-left" href="" ng-click="ok()">Save</a>
+</div>

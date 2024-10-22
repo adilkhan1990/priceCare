@@ -1,0 +1,119 @@
+﻿<style>
+    .cellSelected {
+        background-color: #2880b9;
+        color: white;
+        font-weight: bold;    
+    }
+</style>
+
+<header class="cleaner padding-bottom">
+    <a class="button button-border button-green button-icon icon-save float-right" href="" ng-show="firstVersionSelected() && !userService.isGPRMViewerUser()" ng-class="{'is-disabled': ((!canSave) && !validate)}" ng-click="saveRule()">Save version</a>
+    <a ng-show="forecast" style="margin-right: 5px;" class="button button-border button-green button-icon icon-save float-right" href="" ng-click="updateVersion()">Update</a>
+    <a ng-show="forecast" style="margin-right: 5px;" class="button button-icon button-icon-only icon-add button-blue margin-left float-right margin-left tooltip" title-tooltip="Create simulation" ng-click="createSimulation()">&nbsp;</a>
+    <a ng-show="validate" class="button float-right" style="margin-right: 10px;" href="/#/data/load/{{loadId}}">Back</a>
+    <h1 class="h1-height-button"><span ng-hide="forecast">Data</span><span ng-show="forecast">Forecast</span>: Rules</h1>
+</header>
+
+<div data-op-filter data-options="filterOptions"></div>
+
+<div class="m-rules cleaner">
+    <ul>
+        <li class="title"><strong>Product</strong> </li>            
+        <li ng-class="{cellSelected: product.selected}" ng-repeat="product in products" ng-click="selectProduct(product.id)">{{product.name}}</li>
+    </ul>
+    <ul>
+        <li class="title"><strong>Reviewed Prices</strong> </li>
+        <li ng-class="{cellSelected: priceType.selected}" ng-repeat="priceType in definition.reviewedPriceTypeOptions" ng-click="selectPriceType(priceType.id)">
+            {{priceType.name}}
+        </li>
+    </ul>
+    <ul>
+        <li class="title"><strong>Calculation</strong></li> 
+        <li ng-class="{cellSelected: math.selected}" ng-repeat="math in ruleMath" ng-click="selectRuleMath(math.id)">{{math.name}}</li>       
+    </ul>
+    <ul>
+        <li class="title"><strong>Sub-Calculation(s)</strong></li>              
+        <li ng-class="{cellSelected: subRule.selected}" ng-show="subRule.active" ng-repeat="subRule in definition.referencedData" ng-click="selectSubRule($index, subRule)">
+            {{subRule.gprmMath}}<span ng-show="subRule.argument>=1"> {{subRule.argument}}</span><a ng-show="canRemoveRules" class="m-rules-icon icon-remove" href="" ng-click="removeSubRule(subRule, $event)">remove</a>
+        </li>
+        <li ng-show="showAddSubRule"><div class="m-filter-control-displayoptions-option m-filter-control-full-width" op-field options="mathOptions"></div></li>
+        <li>
+            <a ng-hide="showAddSubRule" href="" class="button button-blue button-small-padding button-icon icon-add" ng-click="addSubRule()">Add Another</a>
+            <a ng-show="showAddSubRule" href="" class="button button-green button-small-padding button-icon icon-success" ng-click="confirmNewSubRule()">Confirm</a>
+            <a ng-show="showAddSubRule" href="" class="button button-red button-small-padding button-icon icon-cross" ng-click="cancelNewSubRule()">Cancel</a>
+        </li>        
+    </ul>
+</div>
+
+<div class="padding-top-bottom">
+    <h3>Parameters</h3>
+</div>
+
+<div class="m-rules cleaner" style="border-top: 1px solid #dde5eb;">
+    <ul>
+        <li ng-show="definition.gprmMath.length > 0">
+            <strong>Look Back</strong>
+            <input class="m-rules-input-text m-rules-input-discount" type="text" ng-model="definition.lookBack" data-only-digits allow-decimal="false" allow-negative="false" ng-change="onChangeParameter()" /> months
+        </li>
+    </ul>
+    <ul>
+        <li ng-show="definition.gprmMath.length > 0">
+            <strong>Effective Lag</strong>
+            <input class="m-rules-input-text m-rules-input-discount" type="text" ng-model="definition.effectiveLag" data-only-digits allow-decimal="false" allow-negative="false" ng-change="onChangeParameter()" /> months
+        </li>
+    </ul>
+    <ul>
+        <li ng-show="definition.gprmMath.length > 0" style="height:52px">
+            <label for="allowIncrease"><strong>Allow Increase</strong></label>
+            <input id="allowIncrease" type="checkbox" ng-model="definition.allowIncrease" ng-change="onChangeParameter()" />
+            <label for="allowIncrease"></label>
+        </li>
+    </ul>
+    <ul>
+        <li ng-show="definition.gprmMath.length > 0">
+            <strong>Adjustment</strong>
+            <input class="m-rules-input-text m-rules-input-discount" type="text" ng-disabled="forAllProducts" ng-model="definition.adjustement" percentage data-only-digits allow-decimal="true" allow-negative="true" ng-change="onChangeParameter()" /> %
+        </li>
+    </ul>
+</div>
+
+<div class="padding-top-bottom">
+    <h3 ng-hide="selectedSubRuleIndex != undefined">Default Basket</h3>
+    <h3 ng-show="selectedSubRuleIndex != undefined" style="display: inline-block">Basket for {{selectedSubRuleText}}</h3>
+    <a ng-show="selectedSubRuleIndex != undefined" href="" ng-click="showDefaultBasket()">Show Default Basket</a>
+</div>
+
+<table class="m-rules">
+    <thead>
+        <tr>
+            <th>Country</th>
+            <th>Referenced Price</th>
+            <th>Adjustment</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr ng-repeat="item in currentlyShownBasket" ng-show="item.active">
+            <td>{{item.referencedGeography}}<a class="m-rules-icon icon-remove" href="" ng-click="removeCountryFromBasket($index, item)">remove</a></td>
+            <td>
+                <div class="m-filter-control-displayoptions-option m-filter-control-full-width" op-field options="currentlyShownPriceTypeOptions[$index]" value-changed="onPriceTypeChanged(item, $index)"></div>
+            </td>
+            <td>
+                <input class="m-rules-input-text m-rules-input-discount" type="text" ng-disabled="forAllProducts" ng-model="item.referencedPriceAdjustment" percentage ng-change="onEditCountryDiscount(item)" data-only-digits allow-decimal="true" allow-negative="true" /> %
+            </td>
+        </tr>
+
+        <tr ng-show="showAddReferencedCountry">
+            <td><div class="m-filter-control-displayoptions-option m-filter-control-full-width" op-field options="countryOptions"></div></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <a class="button button-blue button-small-padding button-icon icon-plus" ng-show="!showAddReferencedCountry" href="" ng-click="addReferencedCountry()">Add Another</a>
+                <a class="button button-green button-small-padding button-icon icon-success" ng-show="showAddReferencedCountry" href="" ng-click="confirmReferencedCountry()">Confirm</a>
+                <a class="button button-red button-small-padding button-icon icon-cross" ng-show="showAddReferencedCountry" href="" ng-click="cancelReferencedCountry()">Cancel</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

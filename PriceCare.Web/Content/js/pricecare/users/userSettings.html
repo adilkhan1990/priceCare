@@ -1,0 +1,91 @@
+﻿<header class="cleaner padding-bottom">
+    <h1 class="h1-height-button">User settings</h1>
+</header>
+
+<h2>General informations</h2>
+<div class="m-form m-form-display-2cols">
+    <div class="m-form-row">
+        <div class="m-form-row-label">
+            First name:
+            <span class="field-validation-error" ng-hide="isValidFirstName">The firstname is required</span>
+        </div>
+        <div class="m-form-row-content">
+            <input type="text" ng-model="user.firstName" data-ng-class="{error: !isValidFirstName}" />
+        </div>
+    </div>
+    <div class="m-form-row">
+        <div class="m-form-row-label">
+            Last name:
+            <span class="field-validation-error" ng-hide="isValidLastName">The lastname is required</span>
+        </div>
+        <div class="m-form-row-content">
+            <input type="text" ng-model="user.lastName" data-ng-class="{error: !isValidLastName}" />
+        </div>
+    </div>
+    <div class="m-form-row">
+        <div class="m-form-row-label">
+            Email:
+            <span class="field-validation-error" ng-hide="isValidEmail">The mail is required</span>
+            <span class="field-validation-error" ng-hide="isValidFormatEmail">This is not an email</span>
+            <span class="field-validation-error" ng-hide="isUniqueEmail">The mail is already taken, please choose an other one</span>
+        </div>
+        <div class="m-form-row-content">
+            <input type="text" ng-model="user.email" data-ng-class="{error: !isValidEmail || !isValidFormatEmail || !isUniqueEmail}" />
+        </div>
+    </div>
+    <div class="m-form-row">
+        <a class="float-right" href="/#/user/changePassword">change</a>
+        <div class="m-form-row-label">
+            Password:
+        </div>
+        <div class="m-form-row-content">
+            <input type="password" ng-model="password" disabled />
+        </div>
+    </div>
+</div>
+
+<div class="cleaner padding-bottom">
+    <button class="button button-border button-green button-icon icon-save float-right"
+            ng-click="saveInfos()"
+            ng-disabled="originalFirstName == user.firstName && originalLastName == user.lastName && originalEmail == user.email">
+        Save
+    </button>
+</div>
+
+<h2>User settings</h2>
+
+<div ng-if="regionOptions && countryOptions && productOptions" class="m-form m-form-display-2cols">
+    <div class="m-form-row">
+        <div class="m-form-row-label">
+            Default region:
+        </div>
+        <div class="m-form-row-content">
+            <div data-op-field data-options="regionOptions"></div>
+        </div>
+    </div>
+    <div class="m-form-row">
+        <div class="m-form-row-label">
+            Default country:
+        </div>
+        <div class="m-form-row-content">
+            <div data-op-field data-options="countryOptions"></div>
+        </div>
+    </div>
+    <div class="m-form-row">
+        <div class="m-form-row-label">
+            Default product:
+        </div>
+        <div class="m-form-row-content">
+            <div data-op-field data-options="productOptions"></div>
+        </div>
+    </div>
+</div>
+
+<div class="cleaner padding-bottom">
+    <button class="button button-border button-green button-icon icon-save float-right"
+            ng-click="saveSettings()">
+        Save
+    </button>
+</div>
+
+

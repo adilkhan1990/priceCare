@@ -1,0 +1,12 @@
+﻿.m-rules, .m-rules tr{
+   background: $color-main-light;
+}
+
+.m-rules-help{
+    color: $color-white;
+    background: $table-help-color;
+}
+
+.m-rules li, .m-rules ul:last-child li{
+    border-color: $color-main-border-light;
+}

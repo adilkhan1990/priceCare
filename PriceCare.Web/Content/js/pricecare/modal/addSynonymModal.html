@@ -1,0 +1,32 @@
+﻿<div class="modal-header">
+    <h3>Add dimension dictionary</h3>
+</div>
+<div class="modal-body">
+    <br />
+    <div>
+        <label>Dimension Type</label>
+        <div data-op-field data-options="dimensionTypeOptions" data-value-changed="dimensionTypeChanged()"></div>
+    </div>
+    <br/>
+    <div>
+        <label>Dimension Target</label>
+        <div data-op-field data-options="dimensionTargetOptions"></div>
+    </div>
+    <br/>
+    <div>
+        <div class="m-login-label">
+            <label>Name:</label>
+            <span class="field-validation-error" ng-hide="isRequiredName">The name is required</span>
+        </div>
+        <input type="text" name="name" ng-model="synonym.name" ng-class="{error: !isRequiredName}" /><br/>
+        <span ng-show="errorMessage" style="color: red;">{{errorMessage}}</span>
+
+    </div>
+
+    <br />
+</div>
+
+<div class="cleaner padding-bottom">
+    <a class="button button-red float-right margin-left" href="" ng-click="cancel()">Cancel</a>
+    <a class="button button-green float-right margin-left" href="" ng-click="ok()">Save</a>
+</div>

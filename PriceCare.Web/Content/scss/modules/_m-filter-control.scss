@@ -1,0 +1,79 @@
+﻿.m-filter-control{
+    @include border-top-left-radius(0.25em);
+    @include border-top-right-radius(0.25em);
+}
+
+.m-filter-control-header{
+    @include border-top-left-radius(0.25em);
+    @include border-top-right-radius(0.25em);
+}
+
+.m-filter-control-header-title{
+    display: inline-block;
+    font-weight: bold;
+
+    a{
+        font-weight: bold;
+    }
+}
+
+.m-filter-control-header-options{
+    float: right;
+
+    @include border-top-right-radius(0.25em);
+
+    .is-selected{
+        font-weight: bold;
+    }
+}
+
+.m-filter-control-header-title-label{
+    display: inline-block;
+    padding-right: 0.2em;
+}
+
+.m-filter-control-content{
+    border: 1px solid;
+    border-top: 0;
+}
+
+.m-filter-control-content-option{
+    float: left;
+    margin-right: 0.2em;
+}
+
+.m-filter-control-header-title, .m-filter-control-header-options, .m-filter-control-displayoptions, .m-filter-control-content{
+    padding: 1em 1.3em;
+}
+
+.m-filter-control-displayoptions input[type=text]{
+    padding: 0.2em 0.4em;
+}
+
+.m-filter-control-displayoptions-option{
+    display: inline-block;
+    padding-right: 0.7em;
+}
+
+.m-filter-option-toggle{
+    display: inline-block;
+    position: relative;
+    padding-right: 1.2em;
+
+    cursor: pointer;
+}
+
+.m-filter-option-toggle:after{
+    font-family: 'icomoon';
+    content: '\e60a';
+    position: absolute;
+    right: 0;
+    top: 0.15em;
+}
+.m-filter-option-toggle.is-active:after{
+    content: '\e60b';
+}
+
+.m-filter-control-header-options .m-filter-control-displayoptions-option{
+    padding-right: 1.2em;
+}

@@ -1,0 +1,35 @@
+﻿<a href="" class="icon-before icon-delete position-close-popup" ng-click="cancel()">Close</a>
+<div class="modal-header">
+    <h3>Save simulation</h3>    
+</div>
+<div class="modal-body">
+    <br/>
+    <table>
+        <tr>
+            <td>Simulation type:</td>
+            <td><span class="m-filter-control-displayoptions-option m-filter-control-full-width" op-field options="simulationOptions"></span></td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" ng-model="model.name"/></td>
+        </tr>
+        <tr>
+            <td>Comment:</td>
+            <td>
+                <textarea style="width: 235px; resize: none;" ng-model="model.comment"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" ng-show="isCurrentUser && !isNewSimulation">
+                <input id="saveAsNewCheckbox" type="checkbox" ng-model="model.overrideValue" />
+                <label for="saveAsNewCheckbox">Replace existing simulation ?</label>
+            </td>
+
+        </tr>        
+    </table>    
+</div>
+
+<div class="cleaner padding-bottom">
+    <a class="button button-red float-right margin-left" href="" ng-click="cancel()">Cancel</a>
+    <a class="button button-green float-right margin-left" href="" ng-click="ok()">Save</a>
+</div>

@@ -1,0 +1,24 @@
+﻿<a href="" class="icon-before icon-delete position-close-popup" ng-click="cancel()">Close</a>
+<div class="modal-header">
+    <h3>{{productName}} - New unit</h3>
+</div>
+<br />
+<div class="modal-body">
+    <p>
+        Unit:
+        <span class="m-filter-control-displayoptions-option m-filter-control-full-width" op-field options="unitOptions"></span>
+    </p>
+    <p>
+        Factor:
+        <input type="text" ng-model="model.factorScreen" only-digits />
+    </p>      
+    <div class="paire checkbox"><input type="checkbox" ng-model="model.active" id="status" name="status"/><label for="status">Active</label></div>        
+    <div class="paire checkbox"><input type="checkbox" ng-model="model.isDefault" id="isDefault" name="isDefault" /><label for="isDefault">Is default</label></div>           
+</div>
+<br />
+
+<div class="cleaner padding-bottom">
+    <a class="button button-red float-right margin-left" href="" ng-click="cancel()">Cancel</a>
+    <a class="button button-green float-right margin-left" href="" ng-click="ok()" ng-enabled="productUnit.factor != null">Save</a>
+</div>
+

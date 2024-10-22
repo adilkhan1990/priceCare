@@ -1,0 +1,52 @@
+﻿<div data-ng-show="options && (options.show == undefined || options.show)" class="m-op-field">
+
+    <!-- LABEL -->
+    <span ng-if="options.type == helperService.FieldTypes.Label" class="m-filter-control-header-title-label" ng-class="options.properties.class">
+        {{options.properties.text}}
+    </span>
+    <!-- CHECKBOX -->
+    <div ng-if="options.type == helperService.FieldTypes.Checkbox">
+        <input id="{{options.name}}" name="{{options.name}}" type="checkbox" ng-model="options.value" ng-change="onCheckedChanged()" />
+        <label for="{{options.name}}">{{options.text}}</label>
+    </div>
+    <!-- NUMERIC TEXTBOX -->
+    <div ng-if="options.type == helperService.FieldTypes.NumericTextbox">
+        <label for="{{options.name}}">{{options.text}}</label>
+        <span ng-class="{'input-unit': options.properties.unit}">
+            <span ng-if="options.properties.unit" class="input-unit-value">{{options.properties.unit}}</span>
+            <input class="op-field-select" id="{{options.name}}" name="{{options.name}}" ng-select="options.properties.select" ng-focus="options.properties.focus" type="text" ng-model="options.value" data-only-digits min-num="{{options.properties.min}}" max-num="{{options.properties.max}}" allow-decimal="{{options.properties.allowDecimal}}" allow-negative="{{options.properties.allowNegative}}" ng-enter="onEnter()" ng-blur="onBlur()" ng-change="onTextChanged()" />
+        </span>
+    </div>
+    <!-- TEXTBOX -->
+    <div ng-if="options.type == helperService.FieldTypes.Textbox">
+        <label for="{{options.name}}">{{options.text}}</label>
+        <div class="input-search">
+            <span class="input-icon icon-search"></span>
+            <input class="" id="{{options.name}}" name="{{options.name}}" ng-select="options.properties.select" ng-focus="options.properties.focus" type="text" ng-model="options.value" data-ng-class="{{options.class}}" ng-enter="onEnter()" ng-blur="onBlur()" ng-change="onTextChanged()" />
+        </div>
+    </div>
+    <!-- SELECT -->
+    <div ng-if="options.type == helperService.FieldTypes.Select">
+        <label for="{{options.name}}">{{options.text}}</label>
+        <span id="{{options.name}}" name="{{options.name}}" data-op-filter-select ng-class="options.properties.class" data-items="options.properties.items" data-selection-changed="selectChanged(item)"></span>
+    </div>
+    <!-- SELECT QUICK SWITCH -->
+    <div ng-if="options.type == helperService.FieldTypes.QuickSwitch">
+        <label for="{{options.name}}">{{options.text}}</label>
+        <span id="{{options.name}}" name="{{options.name}}" data-op-filter-select ng-class="options.properties.class" data-items="options.properties.items" data-selection-changed="selectChanged(item)" data-small-enabled="true"></span>
+    </div>
+    <!-- ACTION -->
+    <div ng-if="options.type == helperService.FieldTypes.Action">
+        <a href="" ng-click="options.properties.callback()" ng-class="options.properties.class" title-tooltip="{{options.properties.tooltip}}">{{options.properties.text}}</a>
+    </div>
+    <!-- SELECT MULTI LEVEL-->
+    <div ng-if="options.type == helperService.FieldTypes.SelectMultiLevel">
+        <label for="{{options.name}}">{{options.text}}</label>
+        <span id="{{options.name}}" name="{{options.name}}" data-op-selection-multi-level ng-class="options.properties.class" data-items="options.properties.items" data-selection-changed="selectChanged(item)"></span>
+    </div>
+
+    <!-- DYNAMIC -->
+    <div ng-if="options.type == helperService.FieldTypes.DynamicPop">
+        <span id="{{options.name}}" name="{{options.name}}" data-op-dynamic-pop ng-class="options.properties.class" data-options="options" data-on-change="onDynamicChanged()"></span>
+    </div>
+</div>

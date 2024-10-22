@@ -1,0 +1,5 @@
+﻿<tr ng-class="{'table-row-title': row.title, 'm-table-poprow-pop': row.pop}">
+    <td></td>
+    <td data-op-cell data-cell="cell" data-row="row" data-table="table" ng-repeat="cell in (row.cells|tableColumnFilter:table.columnFilteringOptions)"></td>
+    <td></td>
+</tr>

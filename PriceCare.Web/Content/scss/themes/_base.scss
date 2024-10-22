@@ -1,0 +1,21 @@
+﻿@import "_variables.scss";
+
+html{
+    font-family: $primary-font;
+}
+
+body{
+    background-color: $color-white;
+    color: $color-main;
+    font-size: $default-font-size;
+
+     overflow-x: hidden;
+}
+
+h1{
+    color: $color-main;
+}
+
+a{
+    color: $color-main;
+}

@@ -1,0 +1,21 @@
+﻿.m-filter-control{
+    background: $color-main-light;
+}
+
+.m-filter-control-header{
+    background: $color-main;
+    color: $color-white;
+}
+
+.m-filter-control-header-options{
+    background: get-intense-color($color-main, $variation-color-pourcent);
+}
+
+.m-filter-control-displayoptions{
+    background: get-intense-color($color-main, $variation-color-pourcent);
+    color: $color-white;
+}
+
+.m-filter-control-content{
+    border-color: $color-main-border-light;
+}

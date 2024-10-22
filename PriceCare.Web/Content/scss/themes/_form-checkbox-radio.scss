@@ -1,0 +1,62 @@
+﻿/* checkbox */
+
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+        border-color: $input-border-color;
+        background-color: $color-white;
+}
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+        color: $input-text-color;
+}
+/* disabled checkbox */
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+        border-color: $color-grey;
+        background-color: $color-grey-light;
+}
+[type="checkbox"]:disabled:checked + label:after {
+        color: $color-grey;
+}
+[type="checkbox"]:disabled + label {
+        color: $input-text-color;
+}
+/* accessibility */
+[type="checkbox"]:checked:focus + label:before,
+[type="checkbox"]:not(:checked):focus + label:before {
+        border-color: $color-grey;
+}
+
+/* radio */
+/* checkbox aspect */
+[type="radio"]:not(:checked) + label:before,
+[type="radio"]:checked + label:before {
+        border-color: $input-border-color;
+        background-color: $color-white;
+}
+/* checked mark aspect */
+[type="radio"]:not(:checked) + label:after,
+[type="radio"]:checked + label:after {
+        background-color: $input-text-color;
+}
+/* disabled checkbox */
+[type="radio"]:disabled:not(:checked) + label:before,
+[type="radio"]:disabled:checked + label:before {
+        border-color: $color-grey;
+        background-color: $color-grey-light;
+}
+[type="radio"]:disabled:checked + label:after {
+        color: $color-grey;
+}
+[type="radio"]:disabled + label {
+        color: $input-text-color;
+}
+
+/* accessibility */
+[type="radio"]:checked:focus + label:before,
+[type="radio"]:not(:checked):focus + label:before {
+        border-color: $input-border-color;
+}

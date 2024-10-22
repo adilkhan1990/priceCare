@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PriceCare.Databases.CentralModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ExcelDownloadBuffer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FilterJson" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Token" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GeneralInformation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContactPerson" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ContactMail" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TechnicalSupportMail" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Invitation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Token" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UsedOn" Type="datetime2" Precision="7" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InvitationRole">
+          <Key>
+            <PropertyRef Name="InvitationId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="InvitationId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RequestAccess">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Reason" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="DateStatusChanged" Type="datetime" />
+          <Property Name="UserStatusChanged" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_InvitationRole_ToInvitation">
+          <End Role="Invitation" Type="Self.Invitation" Multiplicity="1" />
+          <End Role="InvitationRole" Type="Self.InvitationRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invitation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InvitationRole">
+              <PropertyRef Name="InvitationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PriceCareDatabasesCentralModelStoreContainer">
+          <EntitySet Name="ExcelDownloadBuffer" EntityType="Self.ExcelDownloadBuffer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GeneralInformation" EntityType="Self.GeneralInformation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invitation" EntityType="Self.Invitation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvitationRole" EntityType="Self.InvitationRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RequestAccess" EntityType="Self.RequestAccess" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_InvitationRole_ToInvitation" Association="Self.FK_InvitationRole_ToInvitation">
+            <End Role="Invitation" EntitySet="Invitation" />
+            <End Role="InvitationRole" EntitySet="InvitationRole" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PriceCare.Databases.CentralModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PriceCareCentral" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="RequestAccesses" EntityType="PriceCare.Databases.CentralModel.RequestAccess" />
+          <EntitySet Name="GeneralInformations" EntityType="PriceCare.Databases.CentralModel.GeneralInformation" />
+          <EntitySet Name="Invitations" EntityType="PriceCare.Databases.CentralModel.Invitation" />
+          <EntitySet Name="InvitationRoles" EntityType="PriceCare.Databases.CentralModel.InvitationRole" />
+          <AssociationSet Name="FK_InvitationRole_ToInvitation" Association="PriceCare.Databases.CentralModel.FK_InvitationRole_ToInvitation">
+            <End Role="Invitation" EntitySet="Invitations" />
+            <End Role="InvitationRole" EntitySet="InvitationRoles" />
+          </AssociationSet>
+          <EntitySet Name="ExcelDownloadBuffers" EntityType="PriceCare.Databases.CentralModel.ExcelDownloadBuffer" />
+        </EntityContainer>
+        <EntityType Name="RequestAccess">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Reason" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="DateStatusChanged" Type="DateTime" Precision="3" />
+          <Property Name="UserStatusChanged" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GeneralInformation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContactPerson" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ContactMail" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TechnicalSupportMail" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Invitation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Token" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UsedOn" Type="DateTime" Precision="7" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="InvitationRoles" Relationship="PriceCare.Databases.CentralModel.FK_InvitationRole_ToInvitation" FromRole="Invitation" ToRole="InvitationRole" />
+        </EntityType>
+        <EntityType Name="InvitationRole">
+          <Key>
+            <PropertyRef Name="InvitationId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="InvitationId" Type="Int32" Nullable="false" />
+          <Property Name="RoleId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Invitation" Relationship="PriceCare.Databases.CentralModel.FK_InvitationRole_ToInvitation" FromRole="InvitationRole" ToRole="Invitation" />
+        </EntityType>
+        <Association Name="FK_InvitationRole_ToInvitation">
+          <End Type="PriceCare.Databases.CentralModel.Invitation" Role="Invitation" Multiplicity="1" />
+          <End Type="PriceCare.Databases.CentralModel.InvitationRole" Role="InvitationRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invitation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InvitationRole">
+              <PropertyRef Name="InvitationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ExcelDownloadBuffer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FilterJson" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Token" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PriceCareDatabasesCentralModelStoreContainer" CdmEntityContainer="PriceCareCentral">
+          <EntitySetMapping Name="RequestAccesses">
+            <EntityTypeMapping TypeName="PriceCare.Databases.CentralModel.RequestAccess">
+              <MappingFragment StoreEntitySet="RequestAccess">
+                <ScalarProperty Name="UserStatusChanged" ColumnName="UserStatusChanged" />
+                <ScalarProperty Name="DateStatusChanged" ColumnName="DateStatusChanged" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GeneralInformations">
+            <EntityTypeMapping TypeName="PriceCare.Databases.CentralModel.GeneralInformation">
+              <MappingFragment StoreEntitySet="GeneralInformation">
+                <ScalarProperty Name="TechnicalSupportMail" ColumnName="TechnicalSupportMail" />
+                <ScalarProperty Name="ContactMail" ColumnName="ContactMail" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invitations">
+            <EntityTypeMapping TypeName="PriceCare.Databases.CentralModel.Invitation">
+              <MappingFragment StoreEntitySet="Invitation">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UsedOn" ColumnName="UsedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvitationRoles">
+            <EntityTypeMapping TypeName="PriceCare.Databases.CentralModel.InvitationRole">
+              <MappingFragment StoreEntitySet="InvitationRole">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="InvitationId" ColumnName="InvitationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExcelDownloadBuffers">
+            <EntityTypeMapping TypeName="PriceCare.Databases.CentralModel.ExcelDownloadBuffer">
+              <MappingFragment StoreEntitySet="ExcelDownloadBuffer">
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="FilterJson" ColumnName="FilterJson" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,11 @@
+﻿<header class="cleaner padding-bottom">
+    <a class="button button-border button-green button-icon icon-save float-right" ng-show="firstVersionSelected()" ng-class="{'is-disabled': !canSave}" ng-click="saveVersion()">Save version</a>
+    <h1 class="h1-height-button">Data: Price Map</h1>
+</header>
+
+<div data-op-filter data-options="filterOptions"></div>
+
+<br />
+<br />
+
+<table data-ng-show="table.rows.length > 0" data-op-table data-table="table"></table>

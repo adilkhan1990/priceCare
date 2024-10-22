@@ -1,0 +1,22 @@
+﻿<div class="m-tooltip-menu" ng-style="getElementStyle()">
+    <span class="m-tooltip-menu-arrow" ng-style="getArrowStyle()"></span>
+    <a href="" class="color-white icon-before icon-cross position-close-popup" ng-click="close()">Close</a>
+    <header>
+        <h1 class="icon-tooltip icon-edit left">Edit This Cell</h1>
+    </header>
+    <p ng-hide="options.hideTextHelp">
+        Type a new value in the field below and click apply.
+    </p>
+    <div ng-repeat="field in options.fields">
+        <div data-op-field data-options="field" ></div>
+        <br />
+    </div>
+    
+    <div class="text-align-center" ng-show="options.properties.showReverseEdit == undefined || options.properties.showReverseEdit">
+        <a href="" class="button button-border button-blue button-icon icon-save" ng-click="onReverseEdit()">Reverse Edit</a>
+    </div>
+    <br/>
+    <div class="text-align-center" ng-show="options.properties.showApply == undefined || options.properties.showApply">
+        <a href="" class="button button-border button-green button-icon icon-save" ng-click="onApply()">Apply</a>
+    </div>
+</div>

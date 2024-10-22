@@ -1,0 +1,123 @@
+﻿/* other way to fix table border with firefox */
+table{
+    width: 100%;
+    border-spacing: 0px;
+    position: relative;
+    border-collapse: collapse;
+    display: table;
+    /* don't use we have bug with Firefox! */
+
+    th, td{
+        border: 1px solid;
+        padding: 0.75em 0.8em;
+        position: relative;
+        text-align: left;
+        overflow: visible;
+    }
+}
+
+.table{
+    margin-bottom: 1em;
+}
+
+.table-cell-title{
+    font-weight: bold;
+}
+
+.table-help{
+    position: absolute;
+    top: 0.45em;
+    left: 50%;
+    margin-left: -1em;
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    line-height: 1.8em;
+    text-align: center;
+
+    border: 1px solid;
+
+    @include border-radius(100%);
+}
+
+.table-puce:before{
+    content: '';
+    width: 0.75em;
+    height: 0.75em;
+    display: block;
+
+    position: absolute;
+    left: -0.4em;
+    top: 1.2em;
+
+    @include border-radius(100%);
+}
+
+.table-expandable-row{
+    overflow: hidden;
+    width: 1em;
+    height: 1em;
+    
+    display: inline-block;
+    cursor: pointer;
+
+    position: absolute;
+    right: 1em;
+}
+
+.table-expandable-row:before{
+    font-family: 'icomoon';
+    /* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+
+    text-decoration: none;
+}
+
+.table-padding{
+    th, td{
+        padding: 0.75em 3em;
+    }
+}
+
+/* 1280 x 800 pixel resize */
+
+@media screen and (max-width: 1600px) {
+    table{
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    table{
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    table{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    table{
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    table{
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    table{
+        font-size: 9px;
+    }
+}

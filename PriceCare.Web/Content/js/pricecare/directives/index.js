@@ -1,0 +1,25 @@
+﻿define([
+   'Content/js/pricecare/directives/opFilter.js',
+   'Content/js/pricecare/directives/opFilterSelect.js',
+   'Content/js/pricecare/directives/opField.js',
+   'Content/js/pricecare/directives/applicationMenu.js',
+   'Content/js/pricecare/directives/opSelectionTree.js',
+   'Content/js/pricecare/directives/opSelectionTreePopup.js',
+   'Content/js/pricecare/directives/opDynamicHost.js',
+   'Content/js/pricecare/directives/opDynamicPop.js',
+   'Content/js/pricecare/directives/ngFixFooter.js',
+   'Content/js/pricecare/directives/onlyDigits.js',
+   'Content/js/pricecare/directives/ngEnter.js',
+   'Content/js/pricecare/directives/ngBlur.js',
+   'Content/js/pricecare/directives/ngContextMenu.js',
+   'Content/js/pricecare/directives/table/index.js',
+   'Content/js/pricecare/directives/flyout/index.js',
+   'Content/js/pricecare/directives/opSelectionMultiLevel.js',
+   'Content/js/pricecare/directives/opSelectionTreeLimited.js',
+   'Content/js/pricecare/directives/opSelectionTreePopupLimited.js',
+   'Content/js/pricecare/directives/inputFile.js',
+   'Content/js/pricecare/directives/fileChange.js',
+   'Content/js/pricecare/directives/opSmartResolution.js',
+   'Content/js/pricecare/directives/percentage.js'
+], function () {
+});

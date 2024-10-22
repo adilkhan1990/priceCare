@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+    ViewBag.BodyClass = "login";
+}
+
+<header id="mainHeader">
+    <h1>@ViewBag.Title</h1>
+</header>
+
+<section class="m-login cleaner">
+    <!-- Left Panel -->
+    <div class="m-login-description">
+        @Html.Action("GetLeftPanel", "Account")
+    </div>
+
+    <!-- Right Panel -->
+    <div class="m-login-form">
+        <h3>Confirmation email sent</h3>
+        <div>
+            <p>
+                Please check your email and confirm email address.
+            </p>
+        </div>
+    </div>
+</section>
+

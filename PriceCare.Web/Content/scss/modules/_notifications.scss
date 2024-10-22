@@ -1,0 +1,26 @@
+﻿.notification{
+    border: 1px solid;
+    padding: 0.75em 1.2em 1em 1.2em;
+    margin-bottom: 1em;
+
+    @include border-radius(0.25em);
+}
+
+.notification-icon{
+    position: relative;
+    padding: 0.75em 1.2em 1em 3.5em;
+}
+
+.notification-icon:before{
+    font-family: 'icomoon';
+    /* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+    position: absolute;
+
+    left: 0.9em;
+    top: 0.7em;
+
+    font-size: 1.2em;
+}

@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link type="text/css" rel="stylesheet" href="/Content/css/screen.css" />
+    <link type="text/css" rel="stylesheet" href="/Content/css/theme.css" />
+</head>
+    <body>
+        
+        <div class="l-main l-main-login">
+            <!-- Header -->
+            <header class="l-main-header">
+                <aside class="l-main-header-bar cleaner">
+                    <div class="wrap">
+                        <div class="l-main-header-welcom ng-binding">
+                            <span class="logo"><img src="~/Content/images/design/logo.png" alt="Price Care" /></span>
+                        </div>
+                    </div>
+                </aside>
+            </header>
+
+
+            <!--<header class="l-main-header">
+                
+                </header>-->
+            
+            <!-- Body -->
+            <div class="l-main-content" id="body">
+                @RenderBody()
+            </div>
+            
+            <!-- Footer -->
+            <footer class="l-main-footer">
+                <aside class="l-main-footer-bar">
+                    <div class="wrap">
+                        <div class="l-main-footer-menu">
+                            <ul>
+                                <li><a target="_blank" href="">Privacy</a></li>
+                                <li><a target="_blank" href="">Terms</a></li>
+                                <li><a target="_blank" href="">Other Legal Info</a></li>
+                            </ul>
+                        </div>
+                        <div class="l-main-footer-copy">
+                            <img src="~/Content/images/design/Pythia.svg" alt="Pythia Consulting" />
+                        </div>
+                    </div>
+                </aside>
+            </footer>
+        </div>
+
+    </body>
+<script type="text/javascript" src="../../Content/js/vendors/jquery/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Initialize the first time
+            $("#body").css("min-height", ($(window).innerHeight() - 113) + "px");
+            // Intialize after each resize
+            $(window).resize(function () {
+                $("#body").css("min-height", ($(window).innerHeight() - 113)+"px");
+            });
+        });
+
+    </script>
+
+@RenderSection("script", required: false)
+</html>

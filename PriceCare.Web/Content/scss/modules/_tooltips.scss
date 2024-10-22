@@ -1,0 +1,20 @@
+﻿.tooltip{
+    position: relative;
+}
+
+.tooltip:hover:after{
+    bottom: 3em;
+    content: attr(title-tooltip);
+    left: 10%;
+    padding: 0.5em 1em;
+    position: absolute;
+    z-index: 98;
+    width: auto;
+    text-indent: 0;
+    text-transform: none;
+
+    white-space: nowrap;
+    @include border-radius(0.5em);
+
+    font-size: 1rem;
+}

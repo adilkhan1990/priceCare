@@ -1,0 +1,9 @@
+﻿.m-table-pagination{
+    background-color: $table-title-row-bg-color;
+}
+
+.m-table-pagination,
+.m-table-pagination-before,
+.m-table-pagination-after{
+    border-color: $color-grey-light;
+}

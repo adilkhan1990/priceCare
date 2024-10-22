@@ -1,0 +1,22 @@
+﻿define([
+    'Content/js/pricecare/modal/supportModalController.js',
+    'Content/js/pricecare/modal/invitationModalController.js',
+    'Content/js/pricecare/modal/confirmationModalController.js',
+    'Content/js/pricecare/modal/manageRoleModalController.js',
+    'Content/js/pricecare/modal/addSynonymModalController.js',
+    'Content/js/pricecare/modal/addSkuModalController.js',
+    'Content/js/pricecare/modal/addPriceTypeModalController.js',
+    'Content/js/pricecare/modal/uploadFileController.js',
+    'Content/js/pricecare/modal/saveSimulationModalController.js',
+    'Content/js/pricecare/modal/uploadFileController.js',
+    'Content/js/pricecare/modal/createSimulationModalController.js',
+    'Content/js/pricecare/modal/excelFilterModalController.js',
+    'Content/js/pricecare/modal/addCountryModalController.js',
+    'Content/js/pricecare/modal/addItemModalController.js',
+    'Content/js/pricecare/modal/yesNoCancelModalController.js',
+    'Content/js/pricecare/modal/saveRuleModalController.js',
+    'Content/js/pricecare/modal/addProductUnitModalController.js',
+    'Content/js/pricecare/modal/launchDownloadAssumptionsModalController.js',
+    'Content/js/pricecare/modal/addScenarioModalController.js'
+    ], function () {
+});

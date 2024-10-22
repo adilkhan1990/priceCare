@@ -1,0 +1,15 @@
+﻿<nav class="{{levelClass}}" ng-class="{show: showMenu}">
+    <a class="back" href="" ng-click="goBack()">{{"Back"}}</a>
+    <ul>
+        <li ng-repeat="item in menuItems" ng-include="'menuTree'"></li>
+    </ul>
+    <script type="text/ng-template" id="menuTree">
+        <li class="{{item.class}}" ng-class="{hasChildren: item.children}">
+            <a ng-hide="item.link" ng-click="itemClicked(item)">{{item.text}}</a>
+            <a ng-show="item.link" href="{{item.link}}" ng-click="itemClicked(item)">{{item.text}}</a>
+            <ul ng-class="{hidden: !item.showChildren}">
+                <div ng-repeat="item in item.children" ng-include="'menuTree'"></div>
+            </ul>
+        </li>
+    </script>
+</nav>

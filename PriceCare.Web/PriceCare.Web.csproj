@@ -1,0 +1,946 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{11F4523F-37F0-4E82-AAAF-6869EE02F9CA}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PriceCare.Web</RootNamespace>
+    <AssemblyName>PriceCare.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML">
+      <HintPath>..\packages\ClosedXML.0.75.0\lib\net40-client\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.3.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc">
+      <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess">
+      <HintPath>..\packages\odp.net.managed.121.1.2\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Spatial, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.6.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.OData">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.OData.5.3.1\lib\net45\System.Web.Http.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\PriceCare\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\PriceCare\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\..\PriceCare\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\..\PriceCare\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\" />
+    <Folder Include="Content\html\" />
+    <Folder Include="Content\lang\" />
+    <Folder Include="Views\Cache\" />
+    <Folder Include="Views\Data\" />
+    <Folder Include="Views\DimensionDictionary\" />
+    <Folder Include="Views\Dimension\" />
+    <Folder Include="Views\ListToSalesImpact\" />
+    <Folder Include="Views\RequestAccess\" />
+    <Folder Include="Views\Version\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Attributes\SessionExpiryPreventerAttribute.cs" />
+    <Compile Include="Attributes\ValidateAntiForgeryAttribute.cs" />
+    <Compile Include="Constants\ClaimsConstants.cs" />
+    <Compile Include="Constants\CookieConstants.cs" />
+    <Compile Include="Constants\DatabaseConstants.cs" />
+    <Compile Include="Constants\ExcelConstants.cs" />
+    <Compile Include="Constants\LoadConstants.cs" />
+    <Compile Include="Constants\RoleConstants.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AnalyzerController.cs" />
+    <Compile Include="Controllers\ConsolidationController.cs" />
+    <Compile Include="Controllers\CountryController.cs" />
+    <Compile Include="Controllers\CurrencyController.cs" />
+    <Compile Include="Controllers\DataController.cs" />
+    <Compile Include="Controllers\DimensionDictionaryController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\DimensionController.cs" />
+    <Compile Include="Controllers\FileHttpResponseCreator.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IFileHttpResponseCreator.cs" />
+    <Compile Include="Controllers\InformationController.cs" />
+    <Compile Include="Controllers\InvitationController.cs" />
+    <Compile Include="Controllers\IPriceListToExcelDataTransformer.cs" />
+    <Compile Include="Controllers\ListToSalesImpactController.cs" />
+    <Compile Include="Controllers\LoadController.cs" />
+    <Compile Include="Controllers\ExcelController.cs" />
+    <Compile Include="Controllers\PriceListFromExcelConverter.cs" />
+    <Compile Include="Controllers\RequestAccessController.cs" />
+    <Compile Include="Controllers\RuleController.cs" />
+    <Compile Include="Controllers\SimulationController.cs" />
+    <Compile Include="Controllers\ValidateLoadItemDetailViewModel.cs" />
+    <Compile Include="Controllers\VersionController.cs" />
+    <Compile Include="Helpers\ClosedXmlHelpers.cs" />
+    <Compile Include="Helpers\DataTableHelper.cs" />
+    <Compile Include="Helpers\DoubleHelper.cs" />
+    <Compile Include="Helpers\FileHelper.cs" />
+    <Compile Include="Helpers\LoadHelper.cs" />
+    <Compile Include="Helpers\ExcelDownloadBufferHelper.cs" />
+    <Compile Include="Helpers\OracleRequestHelper.cs" />
+    <Compile Include="Helpers\Compression\CompressedContent.cs" />
+    <Compile Include="Helpers\Compression\CompressionHandler.cs" />
+    <Compile Include="Helpers\Compression\Compressor.cs" />
+    <Compile Include="Helpers\Compression\DecompressionHandler.cs" />
+    <Compile Include="Helpers\Compression\Ensure.cs" />
+    <Compile Include="Helpers\Compression\GZipCompressor.cs" />
+    <Compile Include="Helpers\Compression\ICompressor.cs" />
+    <Compile Include="Helpers\Compression\RegexUtils.cs" />
+    <Compile Include="Helpers\Compression\StringExtentions.cs" />
+    <Compile Include="Math\Analyzer.cs" />
+    <Compile Include="Math\Excel.cs" />
+    <Compile Include="Math\Forecast.cs" />
+    <Compile Include="Math\Utils\MathUtils.cs" />
+    <Compile Include="Models\CacheViewModel.cs" />
+    <Compile Include="Models\CompareSimulationViewModel.cs" />
+    <Compile Include="Models\CountrySearchRequestViewModel.cs" />
+    <Compile Include="Models\CountrySearchResponseViewModel.cs" />
+    <Compile Include="Models\DataSearchRequestViewModel.cs" />
+    <Compile Include="Models\DataViewModel.cs" />
+    <Compile Include="Models\DescriptionViewModel.cs" />
+    <Compile Include="Models\DimensionDictionaryModel.cs" />
+    <Compile Include="Models\DimensionDictionarySearchRequestViewModel.cs" />
+    <Compile Include="Models\DimensionDictionarySearchResponseViewModel.cs" />
+    <Compile Include="Models\DimensionViewModel.cs" />
+    <Compile Include="Models\ExcelViewModel.cs" />
+    <Compile Include="Models\XlsTemplateViewModel.cs" />
+    <Compile Include="Models\FilterItemViewModel.cs" />
+    <Compile Include="Models\EventSearchRequestViewModel.cs" />
+    <Compile Include="Models\EventSearchResponseViewModel.cs" />
+    <Compile Include="Models\CurrencySearchRequestViewModel.cs" />
+    <Compile Include="Models\CurrencySearchResponseViewModel.cs" />
+    <Compile Include="Models\GeographyLink.cs" />
+    <Compile Include="Models\GetApplicableFromModel.cs" />
+    <Compile Include="Models\GetCurrenciesRequest.cs" />
+    <Compile Include="Models\GprmRuleViewModel.cs" />
+    <Compile Include="Models\GprmMathViewModel.cs" />
+    <Compile Include="Models\IrpRuleCalculationViewModel.cs" />
+    <Compile Include="Models\ListToSalesImpactSearchResponseViewModel.cs" />
+    <Compile Include="Models\ListToSalesSaveModel.cs" />
+    <Compile Include="Models\ListToSalesSeachRequestViewModel.cs" />
+    <Compile Include="Models\ListToSalesSearchResponseViewModel.cs" />
+    <Compile Include="Models\LoadDetailViewModel.cs" />
+    <Compile Include="Models\LoadedRulesViewModel.cs" />
+    <Compile Include="Models\LoadItemDetailViewModel.cs" />
+    <Compile Include="Models\LoadSearchRequest.cs" />
+    <Compile Include="Models\LoadSearchResponseViewModel.cs" />
+    <Compile Include="Models\LoadViewModel.cs" />
+    <Compile Include="Models\Oracle\CountryModel.cs" />
+    <Compile Include="Models\Oracle\EventModel.cs" />
+    <Compile Include="Models\Oracle\ExchangeRateModel.cs" />
+    <Compile Include="Models\Oracle\PriceListModel.cs" />
+    <Compile Include="Models\Oracle\ProductModel.cs" />
+    <Compile Include="Models\Oracle\RuleModel.cs" />
+    <Compile Include="Models\Oracle\SalesModel.cs" />
+    <Compile Include="Models\Oracle\VolumeModel.cs" />
+    <Compile Include="Models\PriceGuidanceRequest.cs" />
+    <Compile Include="Models\PriceMapSearchRequest.cs" />
+    <Compile Include="Models\PriceMapSearchResponseBck.cs" />
+    <Compile Include="Models\PriceTypeRequest.cs" />
+    <Compile Include="Models\ProductUnitViewModel.cs" />
+    <Compile Include="Models\RequestExcelDownload.cs" />
+    <Compile Include="Models\RuleCountriesRequest.cs" />
+    <Compile Include="Models\RuleRequest.cs" />
+    <Compile Include="Models\SaveCountryModel.cs" />
+    <Compile Include="Models\SavePriceMapRequest.cs" />
+    <Compile Include="Models\SaveRuleViewModel.cs" />
+    <Compile Include="Models\SaveProductModel.cs" />
+    <Compile Include="Models\SaveSettingsRequest.cs" />
+    <Compile Include="Models\SaveSimulationViewModel.cs" />
+    <Compile Include="Models\SaveTypesViewModel.cs" />
+    <Compile Include="Models\RequestAccessChangeStatusViewModel.cs" />
+    <Compile Include="Models\RequestAccessInfoViewModel.cs" />
+    <Compile Include="Models\RequestAccessSearchRequestViewModel.cs" />
+    <Compile Include="Models\RequestAccessSearchResponseViewModel.cs" />
+    <Compile Include="Models\RuleDefinitionViewModel.cs" />
+    <Compile Include="Models\RequestAccessStatusViewModel.cs" />
+    <Compile Include="Models\SaveCurrenciesModel.cs" />
+    <Compile Include="Models\SaveValidationResponseViewModel.cs" />
+    <Compile Include="Models\SaveViewModel.cs" />
+    <Compile Include="Models\SimulationCreateViewModel.cs" />
+    <Compile Include="Models\SimulationViewModel.cs" />
+    <Compile Include="Models\TypeAndSimulationsViewModel.cs" />
+    <Compile Include="Models\UnitViewModel.cs" />
+    <Compile Include="Models\UpdateRegionsCountryViewModel.cs" />
+    <Compile Include="Models\UpdateSimulationViewModel.cs" />
+    <Compile Include="Models\UpdateUserRolesViewModel.cs" />
+    <Compile Include="Models\UserFormRequestViewModel.cs" />
+    <Compile Include="Models\UserFormResponseViewModel.cs" />
+    <Compile Include="Models\UserSettingsViewModel.cs" />
+    <Compile Include="Models\ValidateLoadItemDetailViewModel.cs" />
+    <Compile Include="Models\VersionViewModel.cs" />
+    <Compile Include="Models\VolumeRequest.cs" />
+    <Compile Include="Models\VolumeScenarioViewModel.cs" />
+    <Compile Include="Models\VolumeViewModel.cs" />
+    <Compile Include="Repository\CacheRepository.cs" />
+    <Compile Include="Repository\DimensionDictionaryRepository.cs" />
+    <Compile Include="Repository\DimensionRepository.cs" />
+    <Compile Include="Repository\GprmMathRepository.cs" />
+    <Compile Include="Repository\GprmRuleRepository.cs" />
+    <Compile Include="Models\RegionAndCountriesSearchRequestViewModel.cs" />
+    <Compile Include="Models\RegionAndCountriesSearchResponseViewModel.cs" />
+    <Compile Include="Models\RegionAndCountriesViewModel.cs" />
+    <Compile Include="Models\PriceTypeSearchRequestViewModel.cs" />
+    <Compile Include="Models\PriceTypeSearchResponseViewModel.cs" />
+    <Compile Include="Models\ProductSearchResponseViewModel.cs" />
+    <Compile Include="Models\ProductSearchRequestViewModel.cs" />
+    <Compile Include="Repository\EventRepository.cs" />
+    <Compile Include="Repository\IConsolidationRepository.cs" />
+    <Compile Include="Repository\IDataRepository.cs" />
+    <Compile Include="Repository\IDimensionRepository.cs" />
+    <Compile Include="Repository\IEventRepository.cs" />
+    <Compile Include="Repository\IGprmMathRepository.cs" />
+    <Compile Include="Repository\IGprmRuleRepository.cs" />
+    <Compile Include="Repository\IListToSalesImpactRepository.cs" />
+    <Compile Include="Repository\ILoadRepository.cs" />
+    <Compile Include="Repository\IPriceRepository.cs" />
+    <Compile Include="Controllers\PriceController.cs" />
+    <Compile Include="Controllers\PriceGuidanceController.cs" />
+    <Compile Include="Repository\IRequestAccessRepository.cs" />
+    <Compile Include="Repository\IRuleRepository.cs" />
+    <Compile Include="Repository\IVersionRepository.cs" />
+    <Compile Include="Repository\IVolumeRepository.cs" />
+    <Compile Include="Repository\ListToSalesImpactRepository.cs" />
+    <Compile Include="Repository\LoadRepository.cs" />
+    <Compile Include="Repository\PriceRepository.cs" />
+    <Compile Include="Controllers\PriceTypeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ListToSalesController.cs" />
+    <Compile Include="Controllers\SkuController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\VolumeController.cs" />
+    <Compile Include="Repository\RequestAccessRepository.cs" />
+    <Compile Include="Repository\RuleRepository.cs" />
+    <Compile Include="Repository\SaveRepository.cs" />
+    <Compile Include="Repository\Utils\DataViewModelEqualityComparers.cs" />
+    <Compile Include="Repository\Utils\GprmContainer.cs" />
+    <Compile Include="Repository\Utils\GprmRuleDataEqualityComparer.cs" />
+    <Compile Include="Repository\VersionRepository.cs" />
+    <Compile Include="Repository\VolumeRepository.cs" />
+    <Compile Include="Exceptions\ExceptionHandlingAttribute.cs" />
+    <Compile Include="Exceptions\ItemNotFoundException.cs" />
+    <Compile Include="Exceptions\NoAccessException.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\RequestHelper.cs" />
+    <Compile Include="Migrations\201409251228292_first step.cs" />
+    <Compile Include="Migrations\201409251228292_first step.Designer.cs">
+      <DependentUpon>201409251228292_first step.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410151301194_updateEntity.cs" />
+    <Compile Include="Migrations\201410151301194_updateEntity.Designer.cs">
+      <DependentUpon>201410151301194_updateEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountInfoViewModel.cs" />
+    <Compile Include="Models\AccountResponseSearchViewModel.cs" />
+    <Compile Include="Models\AccountSearchViewModel.cs" />
+    <Compile Include="Models\AccountViewModel.cs" />
+    <Compile Include="Models\CountryViewModel.cs" />
+    <Compile Include="Models\CurrencyViewModel.cs" />
+    <Compile Include="Models\EmailTemplateViewModel.cs" />
+    <Compile Include="Models\GeneralInformationsViewModel.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\InvitationInfoViewModel.cs" />
+    <Compile Include="Models\PriceGuidanceViewModel.cs" />
+    <Compile Include="Models\PriceTypeViewModel.cs" />
+    <Compile Include="Models\ProductViewModel.cs" />
+    <Compile Include="Models\RegionViewModel.cs" />
+    <Compile Include="Models\RequestAccountViewModel.cs" />
+    <Compile Include="Models\ResponseViewModel.cs" />
+    <Compile Include="Models\RoleInfoViewModel.cs" />
+    <Compile Include="Models\RoleUserViewModels.cs" />
+    <Compile Include="Models\ListToSalesViewModel.cs" />
+    <Compile Include="Models\SkuRequestViewModel.cs" />
+    <Compile Include="Models\SkuViewModel.cs" />
+    <Compile Include="Models\UserInfoViewModel.cs" />
+    <Compile Include="Models\UserSearchRequestViewModel.cs" />
+    <Compile Include="Models\UserSearchResponseViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\AccountRepository.cs" />
+    <Compile Include="Repository\CountryRepository.cs" />
+    <Compile Include="Repository\CurrencyRepository.cs" />
+    <Compile Include="Repository\DataRepository.cs" />
+    <Compile Include="Repository\EmailTemplateRepository.cs" />
+    <Compile Include="Repository\FileRepository.cs" />
+    <Compile Include="Repository\IAccountRepository.cs" />
+    <Compile Include="Repository\ICountryRepository.cs" />
+    <Compile Include="Repository\ICurrencyRepository.cs" />
+    <Compile Include="Repository\IInformationRepository.cs" />
+    <Compile Include="Repository\IInvitationRepository.cs" />
+    <Compile Include="Repository\InformationRepository.cs" />
+    <Compile Include="Repository\InvitationRepository.cs" />
+    <Compile Include="Repository\IPriceGuidanceRepository.cs" />
+    <Compile Include="Repository\IPriceTypeRepository.cs" />
+    <Compile Include="Repository\IProductRepository.cs" />
+    <Compile Include="Repository\IListToSalesRepository.cs" />
+    <Compile Include="Repository\ISkuRepository.cs" />
+    <Compile Include="Repository\PriceGuidanceRepository.cs" />
+    <Compile Include="Repository\PriceTypeRepository.cs" />
+    <Compile Include="Repository\ProductRepository.cs" />
+    <Compile Include="Repository\ListToSalesRepository.cs" />
+    <Compile Include="Repository\SkuRepository.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\screen.css" />
+    <Content Include="Content\css\theme.css" />
+    <Content Include="Content\fonts\icomoon.svg" />
+    <Content Include="Content\images\ajax-loader.gif" />
+    <Content Include="Content\images\design\close_modal.png" />
+    <Content Include="Content\images\design\dropdown-top-arrow.png" />
+    <Content Include="Content\images\design\logo-white.png" />
+    <Content Include="Content\images\design\logo.png" />
+    <Content Include="Content\images\design\menu-sprite.png" />
+    <Content Include="Content\images\design\opinum.png" />
+    <Content Include="Content\js\bootstrap.js" />
+    <Content Include="Content\js\main.js" />
+    <Content Include="Content\js\pricecare\app.js" />
+    <Content Include="Content\js\pricecare\countries\countries.html" />
+    <Content Include="Content\js\pricecare\countries\countriesController.js" />
+    <Content Include="Content\js\pricecare\countries\index.js" />
+    <Content Include="Content\js\pricecare\countries\module.js" />
+    <Content Include="Content\js\pricecare\design\design5.html" />
+    <Content Include="Content\js\pricecare\design\design4.html" />
+    <Content Include="Content\js\pricecare\design\design3.html" />
+    <Content Include="Content\js\pricecare\design\design5Controller.js" />
+    <Content Include="Content\js\pricecare\design\design4Controller.js" />
+    <Content Include="Content\js\pricecare\design\design3Controller.js" />
+    <Content Include="Content\js\pricecare\dimensionDictionary\dimensionDictionary.html" />
+    <Content Include="Content\js\pricecare\dimensionDictionary\dimensionDictionaryController.js" />
+    <Content Include="Content\js\pricecare\dimensionDictionary\index.js" />
+    <Content Include="Content\js\pricecare\dimensionDictionary\module.js" />
+    <Content Include="Content\js\pricecare\directives\fileChange.js" />
+    <Content Include="Content\js\pricecare\directives\flyout\compileHtml.js" />
+    <Content Include="Content\js\pricecare\directives\flyout\opSmartResolutionFlyout.js" />
+    <Content Include="Content\js\pricecare\directives\flyout\opSmartResolutionFlyoutTemplate.html" />
+    <Content Include="Content\js\pricecare\directives\inputFile.js" />
+    <Content Include="Content\js\pricecare\directives\flyout\index.js" />
+    <Content Include="Content\js\pricecare\directives\flyout\module.js" />
+    <Content Include="Content\js\pricecare\directives\flyout\opInfoFlyOutTemplate.html" />
+    <Content Include="Content\js\pricecare\directives\flyout\opEditFlyOutTemplate.html" />
+    <Content Include="Content\js\pricecare\directives\flyout\opEditFlyOut.js" />
+    <Content Include="Content\js\pricecare\directives\flyout\opInfoFlyOut.js" />
+    <Content Include="Content\js\pricecare\directives\ngContextMenu.js" />
+    <Content Include="Content\js\pricecare\currencies\currencies.html" />
+    <Content Include="Content\js\pricecare\currencies\currenciesController.js" />
+    <Content Include="Content\js\pricecare\currencies\index.js" />
+    <Content Include="Content\js\pricecare\currencies\module.js" />
+    <Content Include="Content\js\pricecare\directives\opSelectionMultiLevelTemplate.html" />
+    <Content Include="Content\js\pricecare\directives\opSelectionTreeLimitedTemplate.html" />
+    <Content Include="Content\js\pricecare\directives\opSelectionTreeLimited.js" />
+    <Content Include="Content\js\pricecare\directives\opSelectionTreePopupLimited.js" />
+    <Content Include="Content\js\pricecare\directives\opSelectionTreePopupLimitedTemplate.html" />
+    <Content Include="Content\js\pricecare\directives\opSmartResolution.js" />
+    <Content Include="Content\js\pricecare\directives\opSmartResolutionTemplate.html" />
+    <Content Include="Content\js\pricecare\directives\percentage.js" />
+    <Content Include="Content\js\pricecare\directives\table\opTable.js" />
+    <Content Include="Content\js\pricecare\directives\opSelectionMultiLevel.js" />
+    <Content Include="Content\js\pricecare\events\eventsController.js" />
+    <Content Include="Content\js\pricecare\events\events.html" />
+    <Content Include="Content\js\pricecare\events\index.js" />
+    <Content Include="Content\js\pricecare\events\module.js" />
+    <Content Include="Content\js\pricecare\excelTemplates\excelTemplates.html" />
+    <Content Include="Content\js\pricecare\excelTemplates\excelTemplatesController.js" />
+    <Content Include="Content\js\pricecare\excelTemplates\index.js" />
+    <Content Include="Content\js\pricecare\excelTemplates\module.js" />
+    <Content Include="Content\js\pricecare\filters\hiddenFilter.js" />
+    <Content Include="Content\js\pricecare\filters\tableRowFilter.js" />
+    <Content Include="Content\js\pricecare\forecast\simulations.html" />
+    <Content Include="Content\js\pricecare\forecast\simulationsController.js" />
+    <Content Include="Content\js\pricecare\listToSalesImpact\index.js" />
+    <Content Include="Content\js\pricecare\listToSalesImpact\listToSalesImpact.html" />
+    <Content Include="Content\js\pricecare\listToSalesImpact\listToSalesImpactController.js" />
+    <Content Include="Content\js\pricecare\listToSalesImpact\module.js" />
+    <Content Include="Content\js\pricecare\load\index.js" />
+    <Content Include="Content\js\pricecare\load\loadDetailController.js" />
+    <Content Include="Content\js\pricecare\load\loadDetail.html" />
+    <Content Include="Content\js\pricecare\load\load.html" />
+    <Content Include="Content\js\pricecare\load\loadController.js" />
+    <Content Include="Content\js\pricecare\load\module.js" />
+    <Content Include="Content\js\pricecare\load\volumeScenario.html" />
+    <Content Include="Content\js\pricecare\load\volumeScenarioController.js" />
+    <Content Include="Content\js\pricecare\modal\addPriceTypeModalController.js" />
+    <Content Include="Content\js\pricecare\modal\addPriceTypeModal.html" />
+    <Content Include="Content\js\pricecare\modal\addProductUnitModal.html" />
+    <Content Include="Content\js\pricecare\modal\addProductUnitModalController.js" />
+    <Content Include="Content\js\pricecare\modal\addScenarioModal.html" />
+    <Content Include="Content\js\pricecare\modal\addScenarioModalController.js" />
+    <Content Include="Content\js\pricecare\modal\addSkuModalController.js" />
+    <Content Include="Content\js\pricecare\modal\addSkuModal.html" />
+    <Content Include="Content\js\pricecare\modal\addSynonymModalController.js" />
+    <Content Include="Content\js\pricecare\modal\addSynonymModal.html" />
+    <Content Include="Content\js\pricecare\modal\launchDownloadAssumptionsModal.html" />
+    <Content Include="Content\js\pricecare\modal\launchDownloadAssumptionsModalController.js" />
+    <Content Include="Content\js\pricecare\modal\saveRuleModal.html" />
+    <Content Include="Content\js\pricecare\modal\saveRuleModalController.js" />
+    <Content Include="Content\js\pricecare\modal\yesNoCancelModal.html" />
+    <Content Include="Content\js\pricecare\modal\confirmationModal.html" />
+    <Content Include="Content\js\pricecare\modal\yesNoCancelModalController.js" />
+    <Content Include="Content\js\pricecare\modal\confirmationModalController.js" />
+    <Content Include="Content\js\pricecare\modal\excelFilterModal.html" />
+    <Content Include="Content\js\pricecare\modal\excelFilterModalController.js" />
+    <Content Include="Content\js\pricecare\modal\createSimulationModal.html" />
+    <Content Include="Content\js\pricecare\modal\createSimulationModalController.js" />
+    <Content Include="Content\js\pricecare\modal\addItemModal.html" />
+    <Content Include="Content\js\pricecare\modal\addItemModalController.js" />
+    <Content Include="Content\js\pricecare\modal\addCountryModal.html" />
+    <Content Include="Content\js\pricecare\modal\addCountryModalController.js" />
+    <Content Include="Content\js\pricecare\modal\index.js" />
+    <Content Include="Content\js\pricecare\modal\invitationModal.html" />
+    <Content Include="Content\js\pricecare\modal\invitationModalController.js" />
+    <Content Include="Content\js\pricecare\modal\manageRoleModal.html" />
+    <Content Include="Content\js\pricecare\modal\manageRoleModalController.js" />
+    <Content Include="Content\js\pricecare\modal\module.js" />
+    <Content Include="Content\js\pricecare\modal\saveSimulationModal.html" />
+    <Content Include="Content\js\pricecare\modal\saveSimulationModalController.js" />
+    <Content Include="Content\js\pricecare\modal\supportModal.html" />
+    <Content Include="Content\js\pricecare\modal\supportModalController.js" />
+    <Content Include="Content\js\pricecare\modal\uploadFile.html" />
+    <Content Include="Content\js\pricecare\modal\uploadFileController.js" />
+    <Content Include="Content\js\pricecare\prices\index.js" />
+    <Content Include="Content\js\pricecare\prices\module.js" />
+    <Content Include="Content\js\pricecare\prices\prices.html" />
+    <Content Include="Content\js\pricecare\prices\pricesController.js" />
+    <Content Include="Content\js\pricecare\forecast\analyzerForecastController.js" />
+    <Content Include="Content\js\pricecare\forecast\analyzerForecast.html" />
+    <Content Include="Content\js\pricecare\forecast\eventsForecast.html" />
+    <Content Include="Content\js\pricecare\forecast\eventsForecastController.js" />
+    <Content Include="Content\js\pricecare\forecast\index.js" />
+    <Content Include="Content\js\pricecare\forecast\launchForecast.html" />
+    <Content Include="Content\js\pricecare\forecast\launchForecastController.js" />
+    <Content Include="Content\js\pricecare\forecast\module.js" />
+    <Content Include="Content\js\pricecare\forecast\pricesForecast.html" />
+    <Content Include="Content\js\pricecare\forecast\pricesForecastController.js" />
+    <Content Include="Content\js\pricecare\directives\table\opRow.js" />
+    <Content Include="Content\js\pricecare\directives\table\opTableTemplate.html" />
+    <Content Include="Content\js\pricecare\directives\table\opRowTemplate.html" />
+    <Content Include="Content\js\pricecare\directives\table\opCellTemplate.html" />
+    <Content Include="Content\js\pricecare\directives\table\opCell.js" />
+    <Content Include="Content\js\pricecare\directives\table\index.js" />
+    <Content Include="Content\js\pricecare\directives\table\module.js" />
+    <Content Include="Content\js\pricecare\filters\index.js" />
+    <Content Include="Content\js\pricecare\filters\module.js" />
+    <Content Include="Content\js\pricecare\filters\tableColumnFilter.js" />
+    <Content Include="Content\js\pricecare\forecast\volumesForecast.html" />
+    <Content Include="Content\js\pricecare\forecast\volumesForecastController.js" />
+    <Content Include="Content\js\pricecare\informations\index.js" />
+    <Content Include="Content\js\pricecare\informations\informations.html" />
+    <Content Include="Content\js\pricecare\informations\informationsController.js" />
+    <Content Include="Content\js\pricecare\informations\module.js" />
+    <Content Include="Content\js\pricecare\design\design1.html" />
+    <Content Include="Content\js\pricecare\design\design1Controller.js" />
+    <Content Include="Content\js\pricecare\design\design2.html" />
+    <Content Include="Content\js\pricecare\design\design2Controller.js" />
+    <Content Include="Content\js\pricecare\design\index.js" />
+    <Content Include="Content\js\pricecare\design\module.js" />
+    <Content Include="Content\js\pricecare\directives\applicationMenu.js" />
+    <Content Include="Content\js\pricecare\directives\applicationMenuTemplate.html" />
+    <Content Include="Content\js\pricecare\directives\ngBlur.js" />
+    <Content Include="Content\js\pricecare\directives\ngEnter.js" />
+    <Content Include="Content\js\pricecare\directives\ngFixFooter.js" />
+    <Content Include="Content\js\pricecare\directives\onlyDigits.js" />
+    <Content Include="Content\js\pricecare\directives\opDynamicHost.js" />
+    <Content Include="Content\js\pricecare\directives\opDynamicPop.js" />
+    <Content Include="Content\js\pricecare\directives\opDynamicPopTemplate.html" />
+    <Content Include="Content\js\pricecare\directives\opSelectionTree.js" />
+    <Content Include="Content\js\pricecare\directives\opField.js" />
+    <Content Include="Content\js\pricecare\directives\opFilterSelectTemplate.html" />
+    <Content Include="Content\js\pricecare\directives\opFilter.js" />
+    <Content Include="Content\js\pricecare\directives\opFilterSelect.js" />
+    <Content Include="Content\js\pricecare\directives\opFieldTemplate.html" />
+    <Content Include="Content\js\pricecare\directives\opFilterTemplate.html" />
+    <Content Include="Content\js\pricecare\directives\index.js" />
+    <Content Include="Content\js\pricecare\directives\module.js" />
+    <Content Include="Content\js\pricecare\directives\opSelectionTreePopup.js" />
+    <Content Include="Content\js\pricecare\directives\opSelectionTreePopupTemplate.html" />
+    <Content Include="Content\js\pricecare\directives\opSelectionTreeTemplate.html" />
+    <Content Include="Content\js\pricecare\errors\index.js" />
+    <Content Include="Content\js\pricecare\errors\module.js" />
+    <Content Include="Content\js\pricecare\errors\notFound.html" />
+    <Content Include="Content\js\pricecare\errors\notFoundController.js" />
+    <Content Include="Content\js\pricecare\home\home.html" />
+    <Content Include="Content\js\pricecare\home\homeController.js" />
+    <Content Include="Content\js\pricecare\home\index.js" />
+    <Content Include="Content\js\pricecare\home\module.js" />
+    <Content Include="Content\js\pricecare\main\mainController.js" />
+    <Content Include="Content\js\pricecare\main\index.js" />
+    <Content Include="Content\js\pricecare\main\module.js" />
+    <Content Include="Content\js\pricecare\priceguidance\index.js" />
+    <Content Include="Content\js\pricecare\priceguidance\module.js" />
+    <Content Include="Content\js\pricecare\priceguidance\priceGuidance.html" />
+    <Content Include="Content\js\pricecare\priceguidance\priceGuidanceController.js" />
+    <Content Include="Content\js\pricecare\pricetypes\index.js" />
+    <Content Include="Content\js\pricecare\pricetypes\module.js" />
+    <Content Include="Content\js\pricecare\pricetypes\priceTypes.html" />
+    <Content Include="Content\js\pricecare\pricetypes\priceTypesController.js" />
+    <Content Include="Content\js\pricecare\products\index.js" />
+    <Content Include="Content\js\pricecare\products\module.js" />
+    <Content Include="Content\js\pricecare\products\products.html" />
+    <Content Include="Content\js\pricecare\products\productsController.js" />
+    <Content Include="Content\js\pricecare\regions\deleteRegions.html" />
+    <Content Include="Content\js\pricecare\regions\deleteRegionsController.js" />
+    <Content Include="Content\js\pricecare\regions\index.js" />
+    <Content Include="Content\js\pricecare\regions\module.js" />
+    <Content Include="Content\js\pricecare\requestaccess\index.js" />
+    <Content Include="Content\js\pricecare\requestaccess\module.js" />
+    <Content Include="Content\js\pricecare\requestaccess\requestAccesses.html" />
+    <Content Include="Content\js\pricecare\requestaccess\requestAccessesController.js" />
+    <Content Include="Content\js\pricecare\routes.js" />
+    <Content Include="Content\js\pricecare\rules\index.js" />
+    <Content Include="Content\js\pricecare\rules\module.js" />
+    <Content Include="Content\js\pricecare\rules\rules.html" />
+    <Content Include="Content\js\pricecare\rules\rulesController.js" />
+    <Content Include="Content\js\pricecare\listToSales\index.js" />
+    <Content Include="Content\js\pricecare\listToSales\module.js" />
+    <Content Include="Content\js\pricecare\listToSales\listToSales.html" />
+    <Content Include="Content\js\pricecare\listToSales\listToSalesController.js" />
+    <Content Include="Content\js\pricecare\services\analyzerService.js" />
+    <Content Include="Content\js\pricecare\services\cacheService.js" />
+    <Content Include="Content\js\pricecare\services\dataService.js" />
+    <Content Include="Content\js\pricecare\services\dimensionDictionaryService.js" />
+    <Content Include="Content\js\pricecare\services\eventService.js" />
+    <Content Include="Content\js\pricecare\services\dimensionService.js" />
+    <Content Include="Content\js\pricecare\services\excelService.js" />
+    <Content Include="Content\js\pricecare\services\formatHelperService.js" />
+    <Content Include="Content\js\pricecare\services\tableService.js" />
+    <Content Include="Content\js\pricecare\services\listToSalesImpactService.js" />
+    <Content Include="Content\js\pricecare\services\invitationService.js" />
+    <Content Include="Content\js\pricecare\services\rulesService.js" />
+    <Content Include="Content\js\pricecare\services\loadService.js" />
+    <Content Include="Content\js\pricecare\services\countryService.js" />
+    <Content Include="Content\js\pricecare\services\currencyService.js" />
+    <Content Include="Content\js\pricecare\services\dimensionService.js" />
+    <Content Include="Content\js\pricecare\services\helperService.js" />
+    <Content Include="Content\js\pricecare\services\index.js" />
+    <Content Include="Content\js\pricecare\services\informationService.js" />
+    <Content Include="Content\js\pricecare\services\module.js" />
+    <Content Include="Content\js\pricecare\services\priceGuidanceService.js" />
+    <Content Include="Content\js\pricecare\services\priceService.js" />
+    <Content Include="Content\js\pricecare\services\priceTypeService.js" />
+    <Content Include="Content\js\pricecare\services\productService.js" />
+    <Content Include="Content\js\pricecare\services\requestAccessService.js" />
+    <Content Include="Content\js\pricecare\services\listToSalesService.js" />
+    <Content Include="Content\js\pricecare\services\simulationService.js" />
+    <Content Include="Content\js\pricecare\services\skuService.js" />
+    <Content Include="Content\js\pricecare\services\rowFactory.js" />
+    <Content Include="Content\js\pricecare\services\userService.js" />
+    <Content Include="Content\js\pricecare\services\volumeService.js" />
+    <Content Include="Content\js\pricecare\services\versionService.js" />
+    <Content Include="Content\js\pricecare\sku\index.js" />
+    <Content Include="Content\js\pricecare\sku\sku.html" />
+    <Content Include="Content\js\pricecare\sku\skuController.js" />
+    <Content Include="Content\js\pricecare\sku\module.js" />
+    <Content Include="Content\js\pricecare\units\index.js" />
+    <Content Include="Content\js\pricecare\units\module.js" />
+    <Content Include="Content\js\pricecare\units\units.html" />
+    <Content Include="Content\js\pricecare\units\unitsController.js" />
+    <Content Include="Content\js\pricecare\users\addUser.html" />
+    <Content Include="Content\js\pricecare\users\addUserController.js" />
+    <Content Include="Content\js\pricecare\users\changePassword.html" />
+    <Content Include="Content\js\pricecare\users\changePasswordController.js" />
+    <Content Include="Content\js\pricecare\users\index.js" />
+    <Content Include="Content\js\pricecare\users\module.js" />
+    <Content Include="Content\js\pricecare\users\users.html" />
+    <Content Include="Content\js\pricecare\users\usersController.js" />
+    <Content Include="Content\js\pricecare\services\versionService.js" />
+    <Content Include="Content\js\pricecare\users\userSettings.html" />
+    <Content Include="Content\js\pricecare\users\userSettingsController.js" />
+    <Content Include="Content\js\pricecare\volumes\index.js" />
+    <Content Include="Content\js\pricecare\volumes\module.js" />
+    <Content Include="Content\js\pricecare\volumes\volumes.html" />
+    <Content Include="Content\js\pricecare\volumes\volumesController.js" />
+    <Content Include="Content\js\vendors\angular\angular-cookies.js" />
+    <Content Include="Content\js\vendors\angular\angular-file-upload-html5-shim.js" />
+    <Content Include="Content\js\vendors\angular\angular-file-upload-shim.js" />
+    <Content Include="Content\js\vendors\angular\angular-file-upload.js" />
+    <Content Include="Content\js\vendors\angular\angular-md5.js" />
+    <Content Include="Content\js\vendors\angular\angular-route.js" />
+    <Content Include="Content\js\vendors\angular\angular-ui-router.js" />
+    <Content Include="Content\js\vendors\angular\angular-ui-sortable.js" />
+    <Content Include="Content\js\vendors\angular\angular.js" />
+    <Content Include="Content\js\vendors\angular\ui-bootstrap-tpls-0.10.0.min.js" />
+    <Content Include="Content\js\vendors\angular\ui-bootstrap-tpls-0.11.0.js" />
+    <Content Include="Content\js\vendors\angular\ui-bootstrap-tpls-0.11.0.min.js" />
+    <Content Include="Content\js\vendors\angular\ui-utils.js" />
+    <Content Include="Content\js\vendors\angular\ui-utils.min.js" />
+    <Content Include="Content\js\vendors\highchart\highcharts-more.js" />
+    <Content Include="Content\js\vendors\highchart\highcharts.js" />
+    <Content Include="Content\js\vendors\jquery\jquery-1.10.2.js" />
+    <Content Include="Content\js\vendors\jquery\jquery-ui.js" />
+    <Content Include="Content\js\vendors\require\domReady.js" />
+    <Content Include="Content\js\vendors\require\require.js" />
+    <Content Include="Content\js\vendors\underscore\underscore-min.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\js\vendors\underscore\underscore-min.map" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201409251228292_first step.resx">
+      <DependentUpon>201409251228292_first step.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410151301194_updateEntity.resx">
+      <DependentUpon>201410151301194_updateEntity.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="Content\scss\screen.scss" />
+    <Content Include="Content\scss\tools\_functions.scss" />
+    <Content Include="Content\scss\tools\_mixins.scss" />
+    <Content Include="Content\scss\base\_base.scss" />
+    <Content Include="Content\scss\base\_form.scss" />
+    <Content Include="Content\scss\base\_tables.scss" />
+    <Content Include="Content\scss\base\_variables.scss" />
+    <Content Include="Content\scss\layout\_l-main.scss" />
+    <Content Include="Content\scss\layout\_l-main-nav.scss" />
+    <Content Include="Content\scss\modules\_buttons.scss" />
+    <Content Include="Content\scss\modules\_m-filter-control.scss" />
+    <Content Include="Content\scss\modules\_m-custom-select.scss" />
+    <Content Include="Content\scss\states\_m-filter-control.scss" />
+    <Content Include="Content\scss\theme.scss" />
+    <Content Include="Content\scss\themes\_base.scss" />
+    <Content Include="Content\scss\themes\_variables.scss" />
+    <Content Include="Content\scss\themes\_l-main-nav.scss" />
+    <Content Include="Content\scss\themes\_l-main.scss" />
+    <Content Include="Content\scss\themes\_m-custom-select.scss" />
+    <Content Include="Content\scss\themes\_m-filter-control.scss" />
+    <Content Include="Content\scss\themes\_form.scss" />
+    <Content Include="Content\fonts\icomoon.eot" />
+    <Content Include="Content\fonts\icomoon.ttf" />
+    <Content Include="Content\fonts\icomoon.woff" />
+    <Content Include="Content\scss\tools\_icons.scss" />
+    <Content Include="Content\scss\themes\_color.scss" />
+    <Content Include="Content\scss\modules\_positions.scss" />
+    <Content Include="Content\scss\modules\_m-selection-tree.scss" />
+    <Content Include="Content\scss\themes\_buttons.scss" />
+    <Content Include="Content\scss\modules\_m-table-loadmore.scss" />
+    <Content Include="Content\scss\modules\_m-table-pagination.scss" />
+    <Content Include="Content\scss\modules\_m-tooltip-menu.scss" />
+    <Content Include="Content\scss\themes\_m-login.scss" />
+    <Content Include="Content\scss\themes\_m-table-loadmore.scss" />
+    <Content Include="Content\scss\themes\_m-table-pagination.scss" />
+    <Content Include="Content\scss\themes\_m-tooltip-menu.scss" />
+    <Content Include="Content\scss\modules\_m-login.scss" />
+    <Content Include="Content\scss\themes\_tables.scss" />
+    <Content Include="Content\scss\modules\_m-table-poprow.scss" />
+    <Content Include="Content\scss\modules\_m-table-status.scss" />
+    <Content Include="Content\scss\themes\_m-table-poprow.scss" />
+    <Content Include="Content\scss\themes\_m-table-status.scss" />
+    <Content Include="Content\scss\modules\_notifications.scss" />
+    <Content Include="Content\scss\themes\_notifications.scss" />
+    <Content Include="Content\scss\modules\_modal.scss" />
+    <Content Include="Content\scss\themes\_modal.scss" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\DisplayEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\RequestAccess.cshtml" />
+    <Content Include="Views\Account\GetLeftPanel.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PriceCare.Central\PriceCare.Central.csproj">
+      <Project>{7874d082-6410-4698-89ca-fd608fb11051}</Project>
+      <Name>PriceCare.Central</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PriceCare.Math\PriceCare.Math.csproj">
+      <Project>{e84735cc-5bf8-4a97-ae99-b376e8545b44}</Project>
+      <Name>PriceCare.Math</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PriceCare.Shared\PriceCare.Shared.csproj">
+      <Project>{e6a78f50-1f66-4694-b1e2-032a1b7a7b1e}</Project>
+      <Name>PriceCare.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\scss\base\_form-checkbox-radio.scss" />
+    <Content Include="Content\scss\modules\_m-number-circle.scss" />
+    <Content Include="Content\scss\themes\_m-number-circle.scss" />
+    <Content Include="Content\scss\modules\_tooltips.scss" />
+    <Content Include="Content\scss\themes\_tooltips.scss" />
+    <Content Include="Content\scss\modules\_m-form.scss" />
+    <Content Include="Content\scss\modules\_m-table-border.scss" />
+    <Content Include="Content\scss\modules\_m-checkbox.scss" />
+    <Content Include="Content\scss\modules\_application.scss" />
+    <Content Include="Content\scss\themes\_form-checkbox-radio.scss" />
+    <Content Include="App_Data\DataCurrency.xlsx" />
+    <Content Include="App_Data\DataPriceMap.xlsx" />
+    <Content Include="App_Data\DataSKU.xlsx" />
+    <Content Include="App_Data\DataVolume.xlsx" />
+    <Content Include="App_Data\DataCurrency.xlsm" />
+    <Content Include="App_Data\DataEvents.xlsm" />
+    <Content Include="App_Data\DataEvents.xlsx" />
+    <Content Include="App_Data\DataListToSales.xlsm" />
+    <Content Include="App_Data\DataListToSales.xlsx" />
+    <Content Include="App_Data\DataPriceMap.xlsm" />
+    <Content Include="App_Data\DataPrices.xlsm" />
+    <Content Include="App_Data\DataPrices.xlsx" />
+    <Content Include="App_Data\DataPriceTypes.xlsm" />
+    <Content Include="App_Data\DataPriceTypes.xlsx" />
+    <Content Include="App_Data\DataSku.xlsm" />
+    <Content Include="App_Data\DataVolume.xlsm" />
+    <Content Include="App_Data\ForecastAsp.xlsm" />
+    <Content Include="App_Data\ForecastAsp.xlsx" />
+    <Content Include="App_Data\ForecastImpact.xlsm" />
+    <Content Include="App_Data\ForecastImpact.xlsx" />
+    <Content Include="App_Data\ForecastPriceChanges.xlsm" />
+    <Content Include="App_Data\ForecastPriceChanges.xlsx" />
+    <Content Include="App_Data\ForecastPrices.xlsm" />
+    <Content Include="App_Data\ForecastPrices.xlsx" />
+    <Content Include="App_Data\ForecastReviewed.xlsm" />
+    <Content Include="App_Data\ForecastReviewed.xlsx" />
+    <Content Include="App_Data\priceList_template.xlsx" />
+    <Content Include="App_Data\LaunchScenario.xlsm" />
+    <Content Include="App_Data\ForecastEvents.xlsm" />
+    <Content Include="App_Data\DataCurrencyBudget.xlsm" />
+    <Content Include="App_Data\DataCurrencySpot.xlsm" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\Local.pubxml" />
+    <None Include="Properties\PublishProfiles\PriceCare-dev-as - Web Deploy.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\scss\modules\_m-tooltips.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\scss\modules\_m-rules.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\scss\themes\_m-rules.scss" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>5330</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:5330/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

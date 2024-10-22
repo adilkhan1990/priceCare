@@ -1,0 +1,23 @@
+﻿<div class="m-tooltip-menu m-tooltip-menu-smart-resolution" ng-style="getElementStyle()" style="top:4.1em;">
+    <span class="m-tooltip-menu-arrow" ng-style="getArrowStyle()"></span>
+    <a href="" class="color-white icon-before icon-cross position-close-popup" ng-click="close()">Close</a>
+    <header>
+        <h1 class="icon-tooltip icon-edit left">Edit Smart Resolution Rules</h1>
+    </header>
+    <p>
+        Accept all changes which are:
+    </p>
+
+    <div ng-repeat="rule in rules" style="margin-bottom: 1em;">
+        <div data-op-field data-options="rule.selectOptions" style="float:left; margin-right: 1em"></div>
+        <div data-op-field data-options="rule.valueOptions" style="float:left; margin-right: 1em"></div>
+        <a href="" class="icon-before icon-delete" ng-click="deleteRule(rule)"></a>
+        <span class="clean"></span>
+    </div>
+    
+    <a href="" ng-click="addRule()">Add another rule</a>
+
+    <div class="text-align-center" ng-show="options.properties.showApply == undefined || options.properties.showApply" style="margin-top: 1em;">
+        <a href="" class="button button-border button-green button-icon icon-save" ng-click="onApply()">Save Rules</a>
+    </div>
+</div>

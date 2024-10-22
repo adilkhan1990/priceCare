@@ -1,0 +1,31 @@
+﻿.m-tooltip-menu{
+    background: $color-main;
+    color: $color-white;
+
+    > header h2{
+        font-size: 1em;
+    }
+
+    h1{
+        color: $color-white;
+    }
+
+    > h1, > h2{
+        margin: 0.5em 0;
+    }
+
+    a{
+        color: $color-white;
+    }
+}
+
+.m-tooltip-menu-arrow{
+    color: $color-main;
+}
+
+.m-tooltip-menu-bg-orange{
+    background: $tooltip-menu-orange;
+}
+.m-tooltip-menu-bg-orange .m-tooltip-menu-arrow{
+    color: $tooltip-menu-orange;
+}

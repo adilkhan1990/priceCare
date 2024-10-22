@@ -1,0 +1,20 @@
+﻿<div class="modal-header">
+    <a class="close" href="" ng-click="cancel()">Close</a>
+    <h1>Save rule</h1>
+</div>
+<div class="modal-body">
+    <p>Please select an applicable from</p>
+
+    <p>Year</p>
+    <div class="m-filter-control-displayoptions-option m-filter-control-full-width" op-field options="yearOptions" value-changed="onYearChanged()">
+    </div>
+    <p>Month</p>
+    <div class="m-filter-control-displayoptions-option m-filter-control-full-width" op-field options="monthOptions" value-changed="onMonthChanged()">
+    </div>
+    <br/>
+</div>
+
+<div class="cleaner padding-top-bottom">
+    <a class="button button-red float-right margin-left" href="" ng-click="cancel()" ng-hide="hideCancel">Cancel</a>
+    <a class="button button-green float-right margin-left" href="" ng-click="ok()">Save</a>
+</div>

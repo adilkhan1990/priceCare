@@ -1,0 +1,8 @@
+﻿<span>
+    <span class="m-custom-select-dropdown">
+        <span class="m-custom-select-dropdown-align" ng-click="toggleMenu()">{{getText()}}</span>
+        <div ng-if="showMenu">
+            <div op-dynamic-host options="dynamicOptions" on-apply="onApply()"></div>
+        </div>
+    </span>
+</span>

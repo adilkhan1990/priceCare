@@ -1,0 +1,42 @@
+﻿<a href="" class="icon-before icon-delete position-close-popup" ng-click="cancel()">Close</a>
+<div class="modal-header">
+    <h3>Add new price type</h3>
+</div>
+<div class="modal-body">
+
+    <div class="m-form m-form-display-inline">
+        <div class="m-form-row">
+            <div class="m-form-row-label">
+                Currency:
+            </div>
+            <div class="m-form-row-content">
+                <span class="m-filter-control-displayoptions-option m-filter-control-full-width" op-field options="currencyOptions"></span>
+            </div>
+        </div>
+        <div class="m-form-row">
+            <div class="m-form-row-label">
+                Name:
+                <span ng-hide="isRequiredName" class="field-validation-error">The name is required</span>
+            </div>
+            <div class="m-form-row-content">
+                <input type="text" ng-model="priceType.name" data-ng-class="{error: !isRequiredName}" />
+            </div>
+        </div>
+        <div class="m-form-row">
+            <div class="m-form-row-label">
+                Short name:
+                <span ng-hide="isUniqueShortName" class="field-validation-error">This shortname is already taken</span>
+                <span ng-hide="isRequiredShortName" class="field-validation-error">The shortname is required</span>
+            </div>
+            <div class="m-form-row-content">
+                <input type="text" ng-model="priceType.shortName" data-ng-class="{error: !isUniqueShortName || !isRequiredShortName}" />
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="cleaner padding-bottom">
+    <a class="button button-red float-right margin-left" href="" ng-click="cancel()">Cancel</a>
+    <a class="button button-green float-right margin-left" href="" ng-click="ok()">Save</a>
+</div>

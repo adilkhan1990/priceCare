@@ -1,0 +1,26 @@
+﻿<a href="" class="icon-before icon-delete position-close-popup" ng-click="cancel()">Close</a>
+<div class="modal-header">
+    <h3>Download IRP assumptions</h3>
+</div>
+<br />
+<div class="modal-body">
+
+    <div data-op-field data-options="scenarioOptions" ></div>
+    <br/>
+    <div data-op-field data-options="productOptions" ></div>
+    <br/>
+    <div>
+        <div class="m-login-label">
+            <label>Number of years in simulation:</label>
+            <span ng-hide="isValidDuration" class="field-validation-error">The duration must be a number between 1 and 10</span>
+        </div>
+        <input data-ng-class="{'field-validation-error': !isValidDuration}" type="text" name="duration"
+               data-only-digits data-min-num="1" data-max-num="10" data-ng-model="model.simulationDuration" />
+    </div>
+
+</div>
+<br />
+<div class="modal-footer">
+    <button class="button button-green float-right margin-left" ng-click="ok()">Create</button>
+    <button class="button button-red float-right margin-left" ng-click="cancel()">Cancel</button>
+</div>

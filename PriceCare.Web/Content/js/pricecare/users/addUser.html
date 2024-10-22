@@ -1,0 +1,78 @@
+﻿
+
+<h1>Create user</h1>
+<div class="m-form m-form-display-2cols">
+    <div class="m-form-row">
+        <div class="m-form-row-label">
+            Username: 
+            <span ng-hide="isValidUserName" class="field-validation-error">{{usernameErrorText}}</span>
+        </div>
+        <div class="m-form-row-content">
+            <input type="text" ng-model="register.userName" ng-class="{error: !isValidUserName}" />
+        </div>
+    </div>
+    <div class="m-form-row">
+        <div class="m-form-row-label">
+            First name: 
+            <span ng-hide="isValidFirstName" class="field-validation-error">{{firstNameErrorText}}</span>
+        </div>
+        <div class="m-form-row-content">
+            <input type="text" ng-model="register.firstName" ng-class="{error: !isValidFirstName}" />
+        </div>
+    </div>
+    <div class="m-form-row">
+        <div class="m-form-row-label">
+            Last name:
+            <span ng-hide="isValidLastName" class="field-validation-error">{{lastNameErrorText}}</span>
+        </div>
+        <div class="m-form-row-content">
+            <input type="text" ng-model="register.lastName" ng-class="{error: !isValidLastName}" />
+        </div>
+    </div>
+    <div class="m-form-row">
+        <div class="m-form-row-label">
+            Email:
+            <span ng-hide="isValidEmail" class="field-validation-error">{{emailErrorText}}</span>
+        </div>
+        <div class="m-form-row-content">
+            <input type="text" ng-model="register.email" ng-class="{error: !isValidEmail}" />
+        </div>
+    </div>
+    <div class="m-form-row">
+        <div class="m-form-row-label">
+            Password:
+            <span ng-hide="isValidPassword" class="field-validation-error">{{passwordErrorText}}</span>
+        </div>
+        <div class="m-form-row-content">
+            <input type="password" ng-model="register.password" ng-class="{error: !isValidPassword}" />
+        </div>
+    </div>
+    <div class="m-form-row">
+        <div class="m-form-row-label">
+            Confirm Password:
+            <span ng-hide="isValidConfirmPassword" class="field-validation-error">{{passwordConfirmErrorText}}</span>
+        </div>
+        <div class="m-form-row-content">
+            <input type="password" ng-model="register.confirmPassword" ng-class="{error: !isValidConfirmPassword}" />
+        </div>
+    </div>
+    <div class="m-form-row">
+        <div class="m-form-row-label">
+            Roles:
+            <span class="field-validation-error" ng-hide="isValidRole">{{rolesErrorText}}</span>
+        </div>
+        <div class="m-form-row-content">
+            <div class="" ng-repeat="role in roles">
+                <input id="roleName-{{$index}}" type="checkbox" ng-model="rolesSelected[$index]" ng-change="selectRole(role, $index)" />
+                <label for="roleName-{{$index}}">{{role.name}}</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="cleaner padding-bottom">
+    <a class="button button-red float-right margin-left"  href="" ng-click="cancel()">Cancel</a>
+    <a class="button button-green float-right margin-left" href="" ng-click="save()">Save</a>
+</div>
+

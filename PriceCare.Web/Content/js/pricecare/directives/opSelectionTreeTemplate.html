@@ -1,0 +1,16 @@
+﻿<div class="m-selection-tree">
+    <div ng-repeat="item in options.properties.items" class="cleaner">
+        <div class="m-selection-tree-title">
+            <input id="{{item.name}}" name="{{item.name}}" type="checkbox" ng-model="item.value" ng-change="onValueChanged(item)" ui-indeterminate="item.indeterminate" />
+            <label for="{{item.name}}">{{item.text}}</label>
+        </div>
+        <div ng-if="item.items" ng-repeat="subItem in item.items" class="m-selection-tree-content">
+            <input id="{{subItem.name}}" name="{{subItem.name}}" type="checkbox" ng-model="subItem.value" ng-change="onValueChanged(subItem)" ui-indeterminate="subItem.indeterminate" />
+            <label for="{{subItem.name}}">{{subItem.text}}</label>
+            <div ng-if="subItem.items" ng-repeat="subsubItem in subItem.items" class="m-selection-tree-content">
+                <input id="{{subsubItem.name}}" name="{{subsubItem.name}}" type="checkbox" ng-model="subsubItem.value" ng-change="onValueChanged(subsubItem)" ui-indeterminate="subsubItem.indeterminate" />
+                <label for="{{subsubItem.name}}">{{subsubItem.text}}</label>
+            </div>
+        </div>
+    </div>
+</div>

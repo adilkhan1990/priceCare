@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "PriceCare.Databases", "PriceCare.Databases\PriceCare.Databases.sqlproj", "{F952AA52-8180-41E3-B0E5-D1022787C81E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriceCare.Central", "PriceCare.Central\PriceCare.Central.csproj", "{7874D082-6410-4698-89CA-FD608FB11051}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriceCare.Web", "PriceCare.Web\PriceCare.Web.csproj", "{11F4523F-37F0-4E82-AAAF-6869EE02F9CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriceCare.Shared", "PriceCare.Shared\PriceCare.Shared.csproj", "{E6A78F50-1F66-4694-B1E2-032A1B7A7B1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriceCare.Math", "PriceCare.Math\PriceCare.Math.csproj", "{E84735CC-5BF8-4A97-AE99-B376E8545B44}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E6A78F50-1F66-4694-B1E2-032A1B7A7B1E} = {E6A78F50-1F66-4694-B1E2-032A1B7A7B1E}
+		{F952AA52-8180-41E3-B0E5-D1022787C81E} = {F952AA52-8180-41E3-B0E5-D1022787C81E}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriceCare.Tests", "PriceCare.Tests\PriceCare.Tests.csproj", "{E87DF33A-DA24-43AC-A04A-A70B929DF0F4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E6A78F50-1F66-4694-B1E2-032A1B7A7B1E} = {E6A78F50-1F66-4694-B1E2-032A1B7A7B1E}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F952AA52-8180-41E3-B0E5-D1022787C81E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F952AA52-8180-41E3-B0E5-D1022787C81E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F952AA52-8180-41E3-B0E5-D1022787C81E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F952AA52-8180-41E3-B0E5-D1022787C81E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F952AA52-8180-41E3-B0E5-D1022787C81E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{7874D082-6410-4698-89CA-FD608FB11051}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7874D082-6410-4698-89CA-FD608FB11051}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7874D082-6410-4698-89CA-FD608FB11051}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7874D082-6410-4698-89CA-FD608FB11051}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11F4523F-37F0-4E82-AAAF-6869EE02F9CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11F4523F-37F0-4E82-AAAF-6869EE02F9CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11F4523F-37F0-4E82-AAAF-6869EE02F9CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11F4523F-37F0-4E82-AAAF-6869EE02F9CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6A78F50-1F66-4694-B1E2-032A1B7A7B1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6A78F50-1F66-4694-B1E2-032A1B7A7B1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6A78F50-1F66-4694-B1E2-032A1B7A7B1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6A78F50-1F66-4694-B1E2-032A1B7A7B1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E84735CC-5BF8-4A97-AE99-B376E8545B44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E84735CC-5BF8-4A97-AE99-B376E8545B44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E84735CC-5BF8-4A97-AE99-B376E8545B44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E84735CC-5BF8-4A97-AE99-B376E8545B44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E87DF33A-DA24-43AC-A04A-A70B929DF0F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E87DF33A-DA24-43AC-A04A-A70B929DF0F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E87DF33A-DA24-43AC-A04A-A70B929DF0F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E87DF33A-DA24-43AC-A04A-A70B929DF0F4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

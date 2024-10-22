@@ -1,0 +1,15 @@
+﻿<header class="cleaner padding-bottom">
+    <a class="button button-border button-green button-icon icon-save float-right margin-left" href="#/data/dimensionDictionary?dimensionType=Product">Manage dictionaries</a>   
+    <a ng-if="!validate" class="button button-border button-green button-icon icon-save margin-left float-right" data-ng-click="saveVersion()" ng-class="{'is-disabled': !canSave}">Save</a>
+    <a ng-if="validate" class="button button-border button-icon icon-save margin-left float-right tooltip" title-tooltip="cells: {{cellsToValidate}}" data-ng-click="saveVersion()" ng-class="{'is-disabled' : !canSave, 'button-orange' : cellsToValidate>0, 'button-green' : cellsToValidate==0}">Save</a>
+    <a class="button float-right" ng-show="validate" style="margin-right: 10px;" href="/#/data/load/{{loadId}}">Back</a>
+    <h1 class="h1-height-button">Dimensions: Products</h1>
+</header>
+
+<div data-op-filter data-options="filterOptions"></div>
+
+<br/>
+<br/>
+
+<table data-op-table data-table="table"></table>
+

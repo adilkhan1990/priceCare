@@ -1,0 +1,58 @@
+﻿<header class="cleaner padding-bottom">
+    <a href="" class="button button-border button-disabled button-icon icon-graph float-right">Analyse</a>
+    <h1 class="h1-height-button">Load New Lunch Data</h1>
+</header>
+
+<div class="padding-bottom">
+    <label>New Scenario Name</label><br />
+    <input type="text" />
+</div>
+
+<table class="table-status table-padding">
+    <tbody>
+        <tr>
+            <td class="m-table-status-title">Action <span class="m-table-status-help">?</span></td>
+            <td class="m-table-status-title">Template <span class="m-table-status-help">?</span></td>
+            <td class="m-table-status-title">Status<span class="m-table-status-help">?</span></td>
+        </tr>
+        <tr>
+            <td>
+                <span class="m-number-circle color-green">1</span> Load Lunch Senario
+            </td>
+            <td>
+                <a href="">Download Excel Template</a>
+            </td>
+            <td>
+                <span class="m-table-status m-table-status-template m-table-status-validated">
+                    <span class="m-table-status-text ng-binding">Correctly Loaded</span>
+                </span>
+            </td>
+            <td ng-if="load.status == 4" class="ng-scope">
+                <span>Error when gathering data</span><br>
+                <em>Please try again or contact the support</em><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="m-number-circle">2</span> Load Volume Uptake
+            </td>
+            <td>
+                <a href="">Download Excel Template</a>
+            </td>
+            <td>
+                <a href="" class="button button-blue button-small-padding button-full-width text-align-center">Upload</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="m-number-circle">3</span> Load IRP Assumptions
+            </td>
+            <td>
+                <a href="">Download Excel Template</a>
+            </td>
+            <td>
+                <a href="" class="button button-blue button-small-padding button-full-width text-align-center">Upload</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

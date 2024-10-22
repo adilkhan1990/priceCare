@@ -1,0 +1,38 @@
+﻿<div id="m-filter-control" class="m-filter-control mycustom-dropdown">
+    <header class="m-filter-control-header">
+
+        <div class="m-filter-control-header-options" ng-if="options.header.primaryDisplayOptions">
+            <span ng-repeat="item in options.header.primaryDisplayOptions | hiddenFilter">
+                {{item.properties.label}}
+                <div class="m-filter-control-displayoptions-option" op-field options="item" data-value-changed="options.onChanged(item)"></div>
+            </span>
+
+            <span class="m-filter-option-toggle m-filter-option-toggle-header" ng-if="options.header.displayOptions" ng-class="{'is-active': options.header.showDisplayOptions}" ng-click="toggleDisplayOptions()">Display Options</span>
+        </div>
+
+        <span class="m-filter-control-header-title">
+            <div class="m-filter-control-displayoptions-option" ng-repeat="item in options.header.items | hiddenFilter" op-field options="item" data-value-changed="options.onChanged(item)"></div>
+        </span>
+    </header>
+
+    <!-- DISPLAY OPTIONS -->
+    <div ng-if="options.header.displayOptions" ng-show="options.header.showDisplayOptions" class="m-filter-control-displayoptions cleaner">
+        <div class="m-filter-control-displayoptions-option" ng-repeat="item in options.header.displayOptions | hiddenFilter" op-field options="item" data-value-changed="options.onChanged(item)"></div>
+    </div>
+
+    <div class="m-filter-control-content" ng-if="options.filters">
+
+        <div class="cleaner">
+            <div class="m-filter-control-content-option" ng-repeat="item in options.filters | hiddenFilter" op-field options="item" data-value-changed="options.onChanged(item)"></div>
+        </div>
+        
+
+        <!-- ADVANCED FILTERS -->
+        <div class="text-align-right">
+            <span class="m-filter-option-toggle" ng-if="options.advancedFilters" ng-class="{'is-active': options.showAdvancedFilters}" ng-click="toggleAdvancedFilters()">Advanced filters</span>
+        </div>
+        <div class="m-filter-control-content-advanced" ng-if="options.advancedFilters" ng-show="options.showAdvancedFilters">
+            <div ng-repeat="item in options.advancedFilters | hiddenFilter" op-field options="item" data-value-changed="options.onChanged(item)"></div>
+        </div>
+    </div>
+</div>

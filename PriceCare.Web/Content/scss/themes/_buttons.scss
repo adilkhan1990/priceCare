@@ -1,0 +1,72 @@
+﻿.button{
+    background: $color-main;
+    color: $color-white;
+}
+.button-border{
+    border-color: darken($color-main, $variation-color-pourcent);
+}
+.button-border:before{
+    background-color: darken($color-main, $variation-color-pourcent);
+}
+
+.button-icon-only.button-icon:before{
+    color: $color-white;
+}
+
+/* color */
+
+/* green */
+.button-green{
+    background: $color-green;
+}
+.button-green.button-border{
+    border-color: darken($color-green, $variation-color-pourcent);
+}
+.button-green.button-border:before{
+    background-color: darken($color-green, $variation-color-pourcent);
+}
+.button-icon-only.button-icon.button-green{
+    color: $color-green;
+}
+
+/* red */
+.button-red{
+    background: $color-red;
+}
+.button-red.button-border{
+    border-color: darken($color-red, $variation-color-pourcent);
+}
+.button-red.button-border:before{
+    background-color: darken($color-red, $variation-color-pourcent);
+}
+.button-icon-only.button-icon.button-red{
+    color: $color-red;
+}
+
+/* blue */
+.button-blue{
+    background: $color-blue;
+}
+.button-blue.button-border{
+    border-color: darken($color-blue, $variation-color-pourcent);
+}
+.button-blue.button-border:before{
+    background-color: darken($color-blue, $variation-color-pourcent);
+}
+.button-icon-only.button-icon.button-blue{
+    color: $color-blue;
+}
+
+/* disabled */
+.button-disabled{
+    background: $color-grey-disabled !important;
+}
+.button-disabled.button-border{
+    border-color: darken($color-grey-disabled, $variation-color-pourcent) !important;
+}
+.button-disabled.button-border:before{
+    background-color: darken($color-grey-disabled, $variation-color-pourcent) !important;
+}
+.button-icon-only.button-icon.button-disabled{
+    color: darken($color-grey-disabled, $variation-color-pourcent);
+}

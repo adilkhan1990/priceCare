@@ -1,0 +1,22 @@
+﻿.l-main-nav{
+    background-color: $color-main;
+
+    a{
+        color: $color-white;
+    }
+
+    a:hover, a.selected, a.is-selected{
+        background: $color-white;
+        color: $color-main;
+    }
+
+    a:before, .hasChildren a:after{
+        /*background: #d01e1e;*/
+        color: $color-white;
+    }
+
+    a:hover:before, a.selected:before, a.is-selected:before,
+    .hasChildren > a:hover:after, .hasChildren > a.selected:after, .hasChildren > a.is-selected:after{
+        color: $color-main;
+    }
+}

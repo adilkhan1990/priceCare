@@ -1,0 +1,16 @@
+﻿<td ng-click="onclick($event)" ng-context-menu="onrightclick($event)"
+    ng-class="{'table-cell-title':cell.title, 'text-align-center':cell.center || cell.empty, 'text-align-right': cell.displayRight}" ng-style="cellStyle()"
+    colspan="{{cell.colspan}}">
+    {{getCellValue()}}
+    <span class="table-help" ng-if="cell.empty">?</span>
+    <span class="table-help" ng-if="cell.deleted">x</span>
+    <a ng-href="{{action.link}}" ng-click="action.click(cell, row, table, action)" ng-class="action.class" ng-repeat="action in cell.actions" href="">{{action.text}}</a>
+    <!--left click menu-->
+    <div ng-if="cell.leftMenu && showLeftMenu && !cell.blockLeftMenu">
+        <div data-op-info-fly-out data-options="cell.leftMenu" data-cell="cell" data-row="row" data-table="table"></div>
+    </div>
+    <!--right click menu-->
+    <div ng-if="cell.rightMenu && showRightMenu && (!cell.blockRightMenu)">
+        <div data-op-edit-fly-out data-options="cell.rightMenu" data-cell="cell" data-row="row" data-table="table" data-close="closeFlyouts()"></div>
+    </div>
+</td>

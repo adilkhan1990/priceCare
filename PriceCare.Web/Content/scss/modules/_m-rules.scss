@@ -1,0 +1,96 @@
+﻿.m-rules{
+    position: relative;
+    ul{
+        width: 25%;
+        float: left;
+    }
+
+    li{
+        list-style: none;
+        padding: 0.9em 2.75em;
+        border: 1px solid;
+        border-top: 0;
+        border-right: 0;
+        border-color: #dde5eb;
+        position: relative;
+    }
+
+    li.title{
+        padding: 1.6em 2.75em;
+
+        .m-rules-help{
+            top: 1.5em;
+        }
+    }
+
+    li.is-active, li.is-selected{
+        color: #fff;
+        background: #2980b9;
+        font-weight: bold;
+    }
+
+    ul:last-child li{
+        border-right: 1px solid;
+    }
+}
+
+input[type="text"].m-rules-discount{
+    position: absolute;
+    padding: 0.25em 0.5em;
+    width: 3.5em;
+    top: 0.6em;
+}
+
+input[type="text"].m-rules-input-text{
+    padding: 0.25em 0.5em;
+}
+
+input[type="text"].m-rules-input-discount{
+    width: 4.5em;
+    text-align: center;
+}
+
+.m-rules-help{
+    margin: 0 0.8em;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.4em;
+    text-align: center;
+    cursor: pointer;
+
+    @include border-radius(100%);
+}
+
+.m-rules-icon{
+    width: 1em;
+    height: 1.2em;
+    overflow: hidden;
+
+    text-decoration: none;
+    display: inline-block;
+
+    font-size: 1.25em;
+    position: absolute;
+    margin-left: 0.2em;
+}
+
+.m-rules-icon-before{
+    left: 0.5em;
+    top: 0.6em;
+}
+
+.m-rules-icon:before{
+    font-family: 'icomoon';
+    /* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+}
+
+h2 .m-rules-help{
+    font-size: 0.8em;
+}

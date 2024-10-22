@@ -1,0 +1,25 @@
+﻿.m-table-poprow{
+    thead {
+        background-color: $table-title-row-bg-color;
+    }
+    td, th, 
+    .m-table-poprow-pop td:first-child, .m-table-poprow-pop td:last-child {
+      border-color: $color-grey-light;
+    }
+
+    .table-row-title td:first-child, .table-row-title td:last-child{
+        background-color: none;
+    }
+
+    .table-row-title{
+        td:first-child, td:last-child{
+            background-color: $color-white;
+        }
+    }
+
+    .table-row-title.m-table-poprow-pop{
+        td:first-child, td:last-child{
+            background-color: $table-title-row-bg-color;
+        }
+    }
+}

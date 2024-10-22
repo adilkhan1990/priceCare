@@ -1,0 +1,19 @@
+﻿<header class="cleaner padding-bottom">
+    <a ng-if="!validate" class="button button-border button-green button-icon button-icon icon-save float-right" ng-show="firstVersionSelected()" href="" ng-class="{'is-disabled': !canSave}" ng-click="saveVersion()">Save version</a>    
+    <a ng-if="validate" class="button button-border button-icon button-icon icon-save float-right tooltip" ng-show="firstVersionSelected()"
+       title-tooltip="cells: {{cellsToValidateSmartResolution1 + cellsToValidateSmartResolution2}}" href=""
+       ng-class="{'is-disabled' : !canSave, 'button-green': (cellsToValidateSmartResolution1 + cellsToValidateSmartResolution2) == 0, 'button-orange': (cellsToValidateSmartResolution1 + cellsToValidateSmartResolution2) > 0}">Save version</a>
+    <a class="button float-right" style="margin-right: 10px;" ng-show="validate" href="/#/data/load/{{loadId}}">Back</a>
+    <h1 class="h1-height-button">Data: Volumes</h1>
+</header>
+
+<div data-op-filter data-options="filterOptions"></div>
+<br />
+
+<div op-smart-resolution ng-if="validate" options="smartResolutionOptions"></div>
+<div op-smart-resolution ng-if="validate" options="smartDeleteResolutionOptions"></div>
+
+<table data-op-table data-table="table"></table>
+<div class="notification notification-warning" ng-if="!table">
+    Sorry there are no results to display. Please broaden your filter parameters.
+</div>

@@ -1,0 +1,15 @@
+﻿@mixin custom-opacity($opacity) {
+    filter:alpha(opacity=($opacity*100));
+    -moz-opacity: $opacity;
+    -khtml-opacity: $opacity;
+    opacity: $opacity;
+}
+
+@mixin custom-user-select($property) {
+    -webkit-touch-callout: $property;
+    -webkit-user-select: $property;
+    -khtml-user-select: $property;
+    -moz-user-select: $property;
+    -ms-user-select: $property;
+    user-select: $property;
+}

@@ -1,0 +1,69 @@
+﻿.m-custom-select-dropdown-container{
+    background: $dropdown-bg-color;
+    color: $dropdown-txt-color;
+    border: 1px $dropdown-border-color solid;
+
+    @include box-shadow(1px 1px 12px rgba($input-text-color, $shadow-opacity));
+
+    li:hover, li.is-selected{
+        background-color: $drop-down-selected-color;
+    }
+}
+
+.m-custom-select-dropdown-container-arrow{
+    /*background: url('../images/design/dropdown-top-arrow.png');*/
+    color: $dropdown-bg-color;
+}
+
+.m-custom-select-dropdown-quickswitch{
+    border-color: $color-white;
+}
+
+/* Boxed */
+.t-custom-select-boxed, .t-custom-select-boxed-small{
+    .m-custom-select-dropdown-quickswitch{
+        border-color: $input-border-color;
+
+        span{ 
+            border-color: $input-border-color;
+
+            color: $input-border-color;
+            background: $color-blue-very-light;
+        }
+
+        span.is-selected{
+            color: $input-text-color;
+            background: $input-background-color;
+        }
+    }
+} 
+
+.t-custom-select-boxed, .t-custom-select-boxed-small{
+    .m-custom-select-dropdown{
+        color: $input-text-color;
+        background: $input-background-color;
+
+        border-color: $input-border-color;
+    }
+
+    .m-custom-select-dropdown:after{
+        border-color: $input-border-color;
+    }
+}
+
+.m-custom-select-dropdown-big{
+    background: $color-main-light;
+    color: $dropdown-txt-color;
+    border: 1px $dropdown-border-color solid;
+
+    @include box-shadow(1px 1px 12px rgba($input-text-color, $shadow-opacity));
+}
+
+.m-custom-select-dropdown-big-arrow{
+    font-size: 2em;
+}
+
+.m-custom-select-dropdown-big-arrow:before{
+    color: $color-main-light;
+    @include text-shadow(0px -1px 0px rgba($dropdown-border-color, 1));
+}

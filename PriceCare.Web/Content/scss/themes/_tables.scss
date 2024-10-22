@@ -1,0 +1,95 @@
+﻿/* other way to fix table border with firefox */
+table{
+    width: 100%;
+    border-spacing: 0px;
+    position: relative;
+    /*border-collapse: collapse;*/
+    /* don't use we have bug with Firefox! */
+
+    th, td, thead:first-child th, th:first-of-type, td:first-of-type, tr:last-child td{
+        border-color: $color-grey-light;
+    }
+
+    thead {
+	    background: $table-title-row-bg-color;
+
+        th{
+            /*background: get-contrast-color($color-grey-light, $dashboard-bg-hover-pourcent);*/
+            color: $color-main;
+        }
+    }
+
+    tbody tr{
+        background: #fff;
+    }
+}
+
+.table-cell-title{
+    font-weight: bold;
+}
+
+.table-row-title{
+    background-color: $table-title-row-bg-color;
+}
+
+.table-help{
+    color: $table-help-color;
+    background: $table-help-bg;
+    border-color: $table-help-color;
+}
+
+/* color */
+
+.table-bg-red1, .table-bg-red2, .table-bg-red3{
+    color: $color-white;
+}
+
+.table-bg-red1{
+    background: $table-red;
+}
+
+.table-bg-red2{
+    background: rgba($table-red, 0.8);
+}
+
+.table-bg-red3{
+    background: rgba($table-red, 0.6);
+}
+
+.table-bg-green1{
+    background: $table-green;
+}
+
+.table-bg-green2{
+    background: rgba($table-green, 0.8);
+}
+
+.table-bg-green3{
+    background: rgba($table-green, 0.6);
+}
+
+/* puce */
+
+.table-puce-red1:before{
+    background: $table-red;
+}
+
+.table-puce-red2:before{
+    background: rgba($table-red, 0.8);
+}
+
+.table-puce-red3:before{
+    background: rgba($table-red, 0.6);
+}
+
+.table-puce-green1:before{
+    background: $table-green;
+}
+
+.table-puce-green2:before{
+    background: rgba($table-green, 0.8);
+}
+
+.table-puce-green3:before{
+    background: rgba($table-green, 0.6);
+}

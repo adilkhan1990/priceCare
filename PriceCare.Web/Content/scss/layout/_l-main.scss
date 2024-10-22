@@ -1,0 +1,100 @@
+.l-main{
+    margin-left: 180px;
+    min-height: 100%;
+    position: relative;
+    font-size: 0.9em;
+}
+
+.l-main-login{
+    margin-left: 0;
+}
+
+.l-main-header-welcom{
+    float: left;
+
+    /*img{
+        width: 120px;
+    }*/
+}
+
+.l-main-logo{
+    text-align: center;
+    padding: 2em 0;
+}
+
+.l-main-header-welcom-setting{
+    position: relative;
+    display: inline-block;
+
+    .icon{
+        position: absolute;
+        /*margin: -0.3em 0 0 0.5em;*/
+        top: -0.9em;
+        left: 0.3em;
+    }
+}
+
+.l-main-header-bar{
+    border-bottom: 1px solid;
+}
+
+.l-main-header-nav{
+    float: right;
+
+    ul{
+        display: block;
+    }
+    li{
+        display: inline-block;
+        list-style: none;
+        padding: 0 0.3em;
+    }
+    a{
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+}
+
+.l-main-footer{
+    text-align: center;
+    
+    .wrap{
+        position: relative;
+    }
+
+    a{
+        text-decoration: none;
+    }
+}
+
+.l-main-header-bar, .l-main-footer, .l-main-content{
+    padding: 1em 2em;
+}
+
+.l-main-footer-menu{
+    li{
+        list-style: none;
+        display: inline-block;
+        padding-right: 0.3em;
+        /*border-right: 1px solid;*/
+    }
+
+    li:after{
+        content: '|';
+        padding-left: 0.5em;
+    }
+
+    li:last-child:after{
+        content: '';
+    }
+}
+
+.l-main-footer-copy{
+    position: absolute;
+    right: 0;
+    top: -0.1em;
+
+    img{
+        width: 120px;
+    }
+}

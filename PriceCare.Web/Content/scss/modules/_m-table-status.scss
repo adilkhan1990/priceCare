@@ -1,0 +1,45 @@
+﻿.m-table-status{
+    position: relative;
+    padding-left: 1.5em;
+    display: block;
+}
+
+.m-table-status-title{
+    font-weight: bold;
+}
+
+.m-table-status:before{
+    position: absolute;
+    left: 0;
+    width: 0.3em;
+    margin: 0.4em 0;
+    height: calc(100% - 0.7em);
+    content: '';
+
+    @include border-radius(0.25em);
+}
+
+.m-table-status.m-table-status-template{
+    padding-left: 0;
+}
+
+.m-table-status.m-table-status-template:before{
+    height: calc(100% + 0.4em);
+    margin-top: -0.2em;
+    position: absolute;
+    left: -1.3em;
+}
+
+.m-table-status-help{
+    position: absolute;
+    top: 0.65em;
+    margin-left: 1em;
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    line-height: 1.4em;
+    text-align: center;
+    cursor: pointer;
+
+    @include border-radius(100%);
+}

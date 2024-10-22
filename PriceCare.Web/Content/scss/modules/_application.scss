@@ -1,0 +1,81 @@
+﻿.application{
+    position: relative;
+
+    > header{
+        position: relative;
+        height: 135px;
+        background: $application-header-background url('../images/header-background.png') no-repeat right;
+
+        h1, h2{
+            color: $color-white;
+        }
+
+        .logo{
+            position: absolute;
+            width: 70px;
+            height: 20px;
+            display: inline-block;
+
+            top: 0.5em;
+            left: 0.5em;
+
+            background: url('../images/logo.png') no-repeat;
+            text-indent: -100000px;
+        }
+
+        .title{
+            position: absolute;
+            top: 2em;
+            left: 0.5em;
+        }
+
+        .login{
+            position: absolute;
+            top: 1em;
+            right: 1em;
+
+            color: $color-white;
+        }
+
+        .user{
+            font-weight: bold;
+        }
+
+        .action{
+            position: absolute;
+            top: 3.5em;
+            right: 1em;
+
+            text-align: right;
+
+            a{
+                padding: 0.3em 0.7em;
+
+                background: $color-white;
+                color: $color-main;
+
+                @include border-radius(0.5em);
+                text-decoration:none;
+            }
+
+            a:hover{
+                @include custom-opacity(0.9);
+            }
+        }
+
+        a{
+            color: $color-white;
+        }
+    }
+
+    > header.default{
+        .logo{
+            background: url('../images/logo-default.png') no-repeat;
+            width: 268px;
+            height: 63px;
+        }
+        .title{
+            display: none;
+        }
+    }
+}

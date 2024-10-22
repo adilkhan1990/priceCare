@@ -1,0 +1,52 @@
+/* font */
+$primary-font: 'Open Sans', sans-serif;
+$default-font-size: 16px;
+$variation-color-pourcent: 5%;
+$variation-color-notification: 10%;
+
+$color-main: #37485b;
+$color-main-light: #f3f5fa;
+$color-grey: #a9a5a5;
+$color-grey-light: #dde5eb;
+$color-white: #fff;
+$color-black: #000;
+$color-grey-disabled: #d8dfe3;
+$color-blue-very-light: #f5f6f8;
+$color-bg-logo: #40546a;
+$default-color-pourcent: 5%;
+$shadow-pourcent: 10%;
+$shadow-opacity: 0.1;
+
+$color-green: #2fcc73;
+$color-orange: #f27935;
+$color-red: #e85858;
+$color-blue: #2980b9;
+
+/* tool tips menu */
+
+$tooltip-menu-orange: #f27835;
+
+
+$dash-title-color: $color-main;
+$dash-separation-border-color: get-contrast-color($color-main, $default-color-pourcent);
+
+$color-main-border-light: $color-grey-light;
+$drop-down-selected-color: #d8dfe3;
+
+$input-text-color: $color-main;
+$input-border-color: #b3c5d1;
+$input-background-color: $color-white;
+
+/* drop down */
+$dropdown-txt-color: $color-main;
+$dropdown-bg-color: $color-white;
+$dropdown-border-color: $color-grey-light;
+
+/* table */
+
+$table-title-row-bg-color: #f4f5fa;
+$table-help-color: #d4d5da;
+$table-help-bg: #fafbfd;
+
+$table-red: #e7585a;
+$table-green: #2fcc71;

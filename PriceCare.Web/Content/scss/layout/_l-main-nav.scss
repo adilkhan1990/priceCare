@@ -1,0 +1,347 @@
+.l-main-nav{
+
+    width: 180px;
+    height: 100%;
+    position: fixed;
+    overflow: hidden;
+
+    nav{
+        position: relative;
+
+        > ul{
+            @include transition(500ms ease-in-out);
+        }
+    }
+
+    .lvl1 > ul{
+        /*left: 0;*/
+        @include transform(translate3D(0, 0, 0));
+    }
+
+    .lvl2 > ul{
+        /*left: -100%;*/
+        @include transform(translate3D(-100%, 0, 0));
+    }
+
+    .lvl3 > ul{
+        /*left: -200%;*/
+        @include transform(translate3D(-200%, 0, 0));
+    }
+
+    .lvl4 > ul{
+        /*left: -300%;*/
+        @include transform(translate3D(-300%, 0, 0));
+    }
+
+    .lvl5 > ul{
+        /*left: -400%;*/
+        @include transform(translate3D(-400%, 0, 0));
+    }
+
+    ul, li{
+        width: 100%;
+    }
+
+    ul{
+        position: absolute;
+        top: 4em;
+        left: 0;
+        
+        ul{
+            top: 0;
+            left: 100%;
+        }
+    }
+
+    ul.hidden{
+        display: none;
+    }
+
+    li{
+        display: block;
+    }
+
+    a{
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 50px;
+        line-height: 49px;
+        text-transform: uppercase;
+        font-size: 0.75em;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 0 50px;
+    }
+
+    a.back:before,.hasChildren a:after{
+        content: '';
+        width: 2em;
+        height: 2em;
+        position: absolute;
+
+        top: -0.05em;
+        left: 1.7em;
+
+        font-size: 1.25em;
+
+        font-family: 'icomoon';
+        /* Better Font Rendering =========== */
+	    -webkit-font-smoothing: antialiased;
+	    -moz-osx-font-smoothing: grayscale;
+    }
+
+    .hasChildren:hover{
+        cursor: pointer;
+    }
+
+    .hasChildren > a:after{
+        left: auto;
+        right: 0;
+
+        content: '\e60f';
+    }
+
+    a.back{
+        position: fixed;
+        top: 9em;
+        /*@include transform(translate3D(0, 0, 0));*/
+        width: 180px;
+    }
+
+    a.back:before{
+        content: '\e60a';
+        background: none;
+    }
+
+    .lvl1 a.back{
+        visibility: hidden;
+    }
+
+    /* icons */
+
+    a:before{
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        position: absolute;
+        content: '';
+        left: 1.5em;
+        top: 1em;
+        background: url('../images/design/menu-sprite.png');
+    }
+
+    a:hover:before{
+        background-position: -24px 0;
+    }
+
+    .dataset a:before{
+        background-position: 0 -24px;
+    }
+    .dataset a:hover:before{
+        background-position: -24px -24px;
+    }
+
+    .price a:before{
+        background-position: 0 -48px;
+    }
+    .price a:hover:before{
+        background-position: -24px -48px;
+    }
+
+    .events a:before{
+        background-position: 0 -72px;
+    }
+    .events a:hover:before{
+        background-position: -24px -72px;
+    }
+
+    .rules a:before{
+        background-position: 0 -96px;
+    }
+    .rules a:hover:before{
+        background-position: -24px -96px;
+    }
+
+    .price-map a:before{
+        background-position: 0 -120px;
+    }
+    .price-map a:hover:before{
+        background-position: -24px -120px;
+    }
+
+    .net-data a:before{
+        background-position: 0 -144px;
+    }
+    .net-data a:hover:before{
+        background-position: -24px -144px;
+    }
+
+    .net-impact a:before{
+        background-position: 0 -168px;
+    }
+    .net-impact a:hover:before{
+        background-position: -24px -168px;
+    }
+
+    .load a:before, .launch a:before{
+        background-position: 0 -192px;
+    }
+    .load a:hover:before, .launch a:hover:before{
+        background-position: -24px -192px;
+    }
+
+    .dimensions a:before{
+        background-position: 0 -216px;
+    }
+    .dimensions a:hover:before{
+        background-position: -24px -216px;
+    }
+
+    .volumes a:before{
+        background-position: 0 -240px;
+    }
+    .volumes a:hover:before{
+        background-position: -24px -240px;
+    }
+
+    .analyzer a:before{
+        background-position: 0 -264px;
+    }
+    .analyzer a:hover:before{
+        background-position: -24px -264px;
+    }
+
+    .settings a:before{
+        background-position: 0 -288px;
+    }
+    .settings a:hover:before{
+        background-position: -24px -288px;
+    }
+
+    .users a:before{
+        background-position: 0 -312px;
+    }
+    .users a:hover:before{
+        background-position: -24px -312px;
+    }
+
+    .countries a:before{
+        background-position: 0 -336px;
+    }
+    .countries a:hover:before{
+        background-position: -24px -336px;
+    }
+
+    .currencies a:before{
+        background-position: 0 -360px;
+    }
+    .currencies a:hover:before{
+        background-position: -24px -360px;
+    }
+
+    .products a:before{
+        background-position: 0 -408px;
+    }
+    .products a:hover:before{
+        background-position: -24px -408px;
+    }
+
+    .sku a:before{
+        background-position: 0 -384px;
+    }
+    .sku a:hover:before{
+        background-position: -24px -384px;
+    }
+
+    .price-type a:before{
+        background-position: 0 -432px;
+    }
+    .price-type a:hover:before{
+        background-position: -24px -432px;
+    }
+
+    /*.dashboard a:before{
+        content: '\e600';
+    }
+
+    .reports a:before{
+        content: '\e601';
+    }
+
+    .user a:before{
+        content: '\e600';
+    }
+
+    .settings a:before{
+        content: '\e602';
+    }
+
+    .tools a:before{
+        content: '\e600';
+    }
+
+    .admin a:before{
+        content: '\e600';
+    }
+
+    .dataset a:before{
+        content: '\e605';
+    }
+
+    .price a:before{
+        content: '\e62b';
+    }
+
+    .events a:before{
+        content: '\e62a';
+    }
+
+    .countries a:before{
+        content: '\e628';
+    }
+
+    .currencies a:before{
+        content: '\e61f';
+    }
+
+    .dimensions a:before{
+        content: '\e626';
+    }
+
+    .sku a:before{
+        content: '\e624';
+    }
+
+    .price-type a:before{
+        content: '\e62d';
+    }
+
+    .net-data a:before{
+        content: '\e621';
+    }
+
+    .net-impact a:before{
+        content: '\e620';
+    }
+
+    .load a:before, .launch a:before{
+        content: '\e61e';
+    }
+
+    .currencies a:before{
+        content: '\e61f';
+    }
+
+    .analyzer a:before{
+        content: '\e625';
+    }
+
+    .rules a:before{
+        content: '\e615';
+    }
+
+    .price-map a:before{
+        content: '\e627';
+    }*/
+}

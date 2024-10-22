@@ -1,0 +1,245 @@
+﻿.m-custom-select{
+    @include custom-user-select(none);
+}
+
+.m-custom-select-dropdown{
+    position: relative;
+}
+
+.m-custom-select-dropdown-container{
+    position: absolute;
+    z-index: 1000;
+
+    top: 2.2em;
+    left: 0;
+    width: 15em;
+
+    font-weight: normal;
+
+    ul{
+        width: 100%;
+    }
+
+    li{
+        position: relative;
+        list-style: none;
+        display: block;
+        padding: 1em 1.3em;
+        cursor: pointer;
+        font-weight: normal;
+    }
+}
+
+.m-custom-select-dropdown-container-arrow{
+
+    position: absolute;
+    width: 28px;
+    height: 11px;
+    top: -19px;
+    left: 50%;
+    margin-left: -14px;
+
+    font-size: 2em;
+}
+
+.m-custom-select-dropdown-container-arrow:before{
+    font-family: 'icomoon';
+    /* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+    content: '\e609';
+    display: block;
+}
+
+.m-custom-select-dropdown-right{
+    position: absolute;
+    right: 1.3em;
+    top: 1.4em;
+
+    font-style: italic;
+    font-size: 0.8em;
+    text-decoration: none;
+}
+
+.m-custom-select-dropdown-quickswitch{
+    span:hover{
+        cursor: pointer;
+    }
+}
+
+/* theme */
+
+/* Boxed */
+.t-custom-select-boxed, .t-custom-select-boxed-small{
+    .m-custom-select-dropdown-quickswitch{
+        display: inline-block;
+
+        border: 1px solid;
+        @include border-radius(0.25em);
+
+        span{ 
+            display: inline-block;
+            margin: 0;
+            padding: 0.85em 1.2em;
+            border-right: 1px solid;
+        }
+
+        span:first-child{
+            @include border-top-left-radius(0.25em);
+            @include border-bottom-left-radius(0.25em);
+        }
+
+        span:last-child{
+            border-right: 0;
+            @include border-top-right-radius(0.25em);
+            @include border-bottom-right-radius(0.25em);
+        }
+
+        span.is-selected{
+
+        }
+    }
+} 
+
+.t-custom-select-boxed, .t-custom-select-boxed-small{
+
+    ul{
+        width: 100% !important;
+    }
+
+    .m-custom-select-dropdown{
+        position: relative;
+        display: inline-block;
+
+        border: 1px solid;
+
+        cursor: pointer;
+
+        @include border-radius(0.25em);
+    }
+
+    .m-custom-select-dropdown-container{
+        top: 4.2em;
+    }
+
+    .m-custom-select-dropdown-align{
+        display: inline-block;
+        padding: 0.85em 4.3em 0.85em 1.2em;
+    }
+
+    .m-custom-select-dropdown-align:before{
+        content: '\00a0';
+    }
+
+    .m-custom-select-dropdown:after{
+        position: absolute;
+        top: 0;
+        right: 0;
+        /*width: 3.1em;*/
+        height: 100%;
+
+        border-left: 1px solid;
+
+        font-family: 'icomoon';
+        content: '\e60b';
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        padding: 0 1em;
+        line-height: 3.1em;
+        
+        /*padding: 1em 1em 1.05em 1em;*/
+
+        pointer-events: none;
+    }
+}
+
+.t-custom-select-boxed-small{
+    .m-custom-select-dropdown-container{
+        top: 2.8em;
+    }
+    .m-custom-select-dropdown-align{
+        padding: 0.25em 4em 0.25em 0.9em;
+    }
+    .m-custom-select-dropdown:after{
+        line-height: 2.1em;
+    }
+}
+
+/* Text */
+
+.t-custom-select-text{
+    .m-custom-select-dropdown{
+        
+    }
+
+    .m-custom-select-dropdown-align{
+        cursor: pointer; 
+        text-decoration: underline;
+    }
+}
+
+.t-custom-select-text{
+    .m-custom-select-dropdown-quickswitch{
+        span{ 
+            margin: 0;
+            padding: 0 0.2em;
+            text-decoration: underline;
+        }
+
+        span:after{
+            display:inline-block;
+            content: '|';
+            margin-left: 0.3em;
+
+            text-decoration: none;
+            font-weight: normal;
+        }
+
+        span:last-child:after{
+            content: '';
+            margin-left: 0;
+        }
+    }
+}
+
+.m-custom-select-dropdown-big{
+    position: absolute;
+    z-index: 1000;
+
+    top: 4.2em;
+    left: -2.5em;
+    width: 15em;
+
+    padding: 1.5em;
+
+    font-weight: normal;
+    cursor: default;
+}
+
+.m-custom-select-dropdown-big-arrow{
+    content: '';
+    position: absolute;
+    width: 28px;
+    height: 20px;
+    top: -19px;
+    left: 50%;
+    margin-left: -14px;
+}
+
+.m-custom-select-dropdown-big-arrow:before{
+    font-family: 'icomoon';
+    /* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+    content: '\e609';
+    display: block;
+}
+
+/* full width */
+
+.m-filter-control-full-width{
+    width: 100%;
+
+}

@@ -1,0 +1,32 @@
+﻿
+<header class="cleaner padding-bottom">
+    <a href="" class="button button-border button-icon icon-graph float-right" ng-class="{'button-disabled' : !status.dataReady}" ng-href="#/forecast/prices">Go to Simulation</a>
+    <a href="" class="button button-border button-icon icon-graph float-right" ng-click="checkScenarioLoad()" ng-class="{'button-disabled' : !status.templateDownloaded}">Check Scenario</a>
+    <a style="margin-right: 5px;" class="button button-icon button-icon-only icon-add button-blue margin-left float-right margin-left tooltip" title-tooltip="Create simulation" ng-click="initializeSimulation()" ng-class="{'is-disabled': inProgressCreateSimulation}">&nbsp;</a>
+    <h1 class="h1-height-button">Create New Product Launch Simulation</h1>
+</header>
+<div data-op-filter data-options="filterOptions"></div>
+<br />
+<br />
+<table class="table-status table-padding">
+    <tbody>
+        <tr>
+            <td class="m-table-status-title">New Product Launch Data Load Checks</td>
+        </tr>
+        <tr>
+            <td>
+                <span class="m-number-circle" ng-class="{'color-green' :status.launchReady}">1</span> Launch Senario Provided
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="m-number-circle" ng-class="{'color-green' :status.volumeReady}">2</span> Volume Forecast Provided
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="m-number-circle" ng-class="{'color-green' :status.eventReady}">3</span> IRP Assumptions Exist (based on selected existing product if no updates pushed from Excel template)
+            </td>
+        </tr>
+    </tbody>
+</table>

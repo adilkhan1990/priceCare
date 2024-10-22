@@ -1,0 +1,28 @@
+﻿.table-status{
+    background: $color-main-light;
+
+    tr{
+        background: $color-main-light;
+    }
+}
+
+.m-table-status-loading:before{
+    background: $color-grey;
+}
+
+.m-table-status-validated:before{
+    background: $color-green;
+}
+
+.m-table-status-not-validated:before{
+    background: $color-orange;
+}
+
+.m-table-status-error:before{
+    background: $color-red;
+}
+
+.m-table-status-help{
+    color: $color-white;
+    background: $table-help-color;
+}

@@ -1,0 +1,16 @@
+﻿<header class="cleaner padding-bottom">
+    <a ng-show="table.rows.length>0 && !userService.isGPRMViewerUser()" class="button button-border button-green button-icon icon-save float-right" href="" ng-click="saveVersion()" ng-class="{'is-disabled': !saveEnabled()}">Save version</a>
+    <a ng-show="table.rows.length>0" style="margin-right: 5px;" class="button button-border button-green button-icon icon-save float-right" href="" ng-click="updateVersion()" ng-class="{'is-disabled': !updateEnabled()}">Update</a>
+    <a style="margin-right: 5px;" class="button button-icon button-icon-only icon-add button-blue margin-left float-right margin-left tooltip" title-tooltip="Create simulation" ng-click="createSimulation()">&nbsp;</a>
+
+    <h1 class="h1-height-button">Forecast: Volumes</h1>
+</header>
+
+<div op-filter options="filterOptions"></div>
+<br />
+<br />
+
+<table op-table table="table"></table>
+<div class="notification notification-warning" ng-if="!table">
+    Sorry there are no results to display. Please broaden your filter parameters.
+</div>

@@ -1,0 +1,44 @@
+﻿@model PriceCare.Web.Models.RequestAccountViewModel
+
+@{
+    ViewBag.Title = "Request Access";
+}
+
+<header>
+    <h1>Request Access</h1>
+</header>
+
+<section class="m-login cleaner">
+
+    <!-- Left Panel -->
+    <div class="m-login-description">
+        @Html.Action("GetLeftPanel", "Account")
+    </div>
+
+    <!-- Right Panel -->
+    <div class="m-login-form">
+        <h3>Request Access</h3>
+        <p>To gain access, please provide the following:</p>
+        @using (Html.BeginForm("RequestAccess", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "request_form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div>
+                <label for="Username">Your Email Address</label>
+                @Html.TextBoxFor(m => m.Email)
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "error" }) <br />
+            </div>
+            <div>
+                <label for="Password">Your Reason for Requiring Access</label>
+                @Html.TextAreaFor(m => m.Reason)
+                @Html.ValidationMessageFor(m => m.Reason, "", new { @class = "error" }) <br />
+            </div>
+            <div class="text-align-right">
+                <a class="button button-border button-blue button-icon icon-mail" onclick="document.getElementById('request_form').submit()">Send Request</a>
+            </div>
+            <div class="text-align-right">
+                @Html.ActionLink("< or go back to login", "Login")
+            </div>
+        }
+    </div>
+
+</section>

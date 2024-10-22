@@ -1,0 +1,19 @@
+﻿<header class="cleaner padding-bottom">
+    <a ng-if="!validate" ng-show="firstVersionSelected()" class="button button-border button-green button-icon icon-save margin-left float-right" ng-click="save()" ng-class="{'is-disabled': !canSave}">Save</a>
+    <a ng-if="validate" ng-show="firstVersionSelected()" class="button button-border button-icon icon-save margin-left float-right tooltip" title-tooltip="cells: {{cellsToValidate}}" ng-click="save()" ng-class="{'is-disabled' : !canSave, 'button-orange' : cellsToValidate>0, 'button-green' : cellsToValidate==0}">Save</a>
+    <a class="button float-right" ng-show="validate" style="margin-right: 10px;" href="/#/data/load/{{loadId}}">Back</a>
+    <h1 class="h1-height-button">Dimensions: Currencies</h1>
+</header>
+
+<div data-op-filter data-options="filterOptions"></div>
+
+<br />
+<div data-op-smart-resolution ng-if="validate" data-options="smartResolutionOptions"></div>
+<div data-op-smart-resolution ng-if="validate" data-options="smartDeleteResolutionOptions"></div>
+
+<table data-ng-show="currencies.length > 0" data-op-table data-table="table"></table>
+
+<div class="notification notification-warning" data-ng-show="currencies.length == 0">
+    Sorry there are no results to display. Please broaden your filter parameters.
+</div>
+

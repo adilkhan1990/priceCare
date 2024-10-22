@@ -1,0 +1,19 @@
+﻿@model PriceCare.Web.Models.GeneralInformationsViewModel
+
+<h3>GPRM</h3>
+<div>
+    <p>The <b><u>G</u></b><i>lobal</i> <b><u>p</u></b><i>rice</i> <b><u>R</u></b><i>eferencing</i> <b><u>M</u></b><i>odel</i> is a price forecasting and analysis platform dedicated to International Reference Pricing calculations</p>
+</div>
+<h3>Support</h3>
+@*<div>
+    <p>Amgen Lead: <a href="mailto:info@amgen.com">info@amgen.com</a></p>
+    <p>Technical Lead: <a href="mailto:support@amgen.com">support@amgen.com</a></p>
+</div>*@
+
+<div>    
+    Merck Lead: <a href="@string.Format("mailto:{0}", Model.AmgenSupportContactEmail)">@Model.AmgenSupportContactEmail</a>
+</div>
+
+<div>    
+    Technical Lead: <a href="@string.Format("mailto:{0}", Model.TechnicalSupportEmail)">@Model.TechnicalSupportEmail</a>
+</div>

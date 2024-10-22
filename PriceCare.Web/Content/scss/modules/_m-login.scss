@@ -1,0 +1,74 @@
+﻿.l-main-login{
+
+    .l-main-content, .wrap{
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .wrap{
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 2em;
+    }
+
+    .l-main-footer-copy{
+        right: 2em;
+    }
+
+    input[type=text], input[type=password], input[type=email], textarea{
+        margin: 0.5em 0;
+    }
+
+    #Reason{
+        height: 150px;
+    }
+}
+
+.m-login{
+    border: 1px solid;
+    padding: 4em 0;
+    margin: 1.5em 0;
+
+    @include border-radius(0.5em);
+}
+
+.m-login-description{
+    float: left;
+}
+
+.m-login-form{
+    float: right;
+}
+
+.m-login-description, .m-login-form{
+    width: 50%;
+    padding: 0 4em;
+}
+
+.m-login-description{
+    border-right: 1px solid;
+}
+
+.m-login-form{
+    form > div{
+        margin: 1em 0;
+    }
+
+    input[type=text], input[type=password], textarea{
+        width: 100%;
+    }
+
+    textarea{
+        resize: none;
+    }
+}
+
+.m-login-label{
+    display: block;
+
+    .field-validation-error{
+        font-size: 90%;
+    }
+}

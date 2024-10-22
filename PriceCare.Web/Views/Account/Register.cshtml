@@ -1,0 +1,119 @@
+﻿@using PriceCare.Web.Models
+@model RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    ViewBag.BodyClass = "login";    
+}
+
+<header>
+    <h1>@ViewBag.Title</h1>
+</header>
+
+<script src="~/Content/js/vendors/jquery/jquery-1.10.2.js"></script>
+
+@if (Model != null && Model.Invitation != null)
+{
+    switch (Model.Invitation.State)
+    {
+        case TokenState.Valid:
+            <aside class="notification green">
+                <strong>Invitation - </strong> You have been invited by @Model.Invitation.InvitedBy on @Model.Invitation.CreatedOn.ToString("U").
+            </aside>
+            break;
+        case TokenState.Invalid:
+            <aside class="notification red">
+                <strong>Invitation - </strong> The token you are trying to use is invalid.
+            </aside>
+            break;
+        case TokenState.AlreadyUsed:
+            <aside class="notification red">
+                <strong>Invitation - </strong> The token you are trying to use has already be used. If you already have an account, please go to the @Html.ActionLink("Login page", "Login", "Account")
+            </aside>
+            break;
+        case TokenState.Expired:
+            break;
+    }
+}
+
+@if (Model != null && Model.Invitation != null && Model.Invitation.State == TokenState.Valid)
+{
+    <section class="m-login cleaner">
+        
+
+        <!-- Left Panel -->
+        <div class="m-login-description">
+            @Html.Action("GetLeftPanel")
+        </div>
+
+        <!-- Right Panel -->
+        <div class="m-login-form">
+            <header>
+                <h1>Create a new account</h1>
+            </header>
+            @using (Html.BeginForm("Register", "Account", new { token = Model.Invitation.Token }, FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "login_form" }))
+            {
+
+                if (Model != null && Model.Invitation != null && Model.Invitation.State == TokenState.Valid)
+                {
+                    @Html.HiddenFor(m => m.Invitation.Token)
+                    @Html.HiddenFor(m => m.Invitation.CreatedOn)
+                    @Html.HiddenFor(m => m.Invitation.InvitedBy)
+                    @Html.HiddenFor(m => m.Invitation.State)
+                }
+
+                @Html.AntiForgeryToken()
+                @*@Html.ValidationSummary("", new { @class = "error" })*@
+                <div>
+                    <div class="m-login-label">
+                        <label for="Username">Username</label>
+                        @Html.ValidationMessageFor(m => m.Username, "", new { @class = "error" })
+                    </div>
+                    @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+                </div>
+                <div>
+                    <div class="m-login-label">
+                        <label for="Email">Email</label>
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "error" })
+                    </div>
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                </div>
+                <div>
+                    <div class="m-login-label">
+                        <label for="Firstname">Firstname</label>
+                        @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "error" })
+                    </div>
+                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                </div>
+                <div>
+                    <div class="m-login-label">
+                        <label for="Lastname">Lastname</label>
+                        @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "error" })
+                    </div>
+                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                </div>
+
+                <div>
+                    <div class="m-login-label">
+                        <label for="Password">Password</label>
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "error" })
+                    </div>
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                </div>
+                <div>
+                    <div class="m-login-label">
+                        <label for="ConfirmPassword">Confirm password</label>
+                        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "error" })
+                    </div>
+                     @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                </div>
+                <div class="text-align-right">
+                    <a class="button button-border button-blue button-icon icon-save" onclick="document.getElementById('login_form').submit()">Register</a>
+                </div>
+            }
+        </div>
+</section>
+}
+else
+{
+    @Html.Partial("RequestAccess", new RequestAccountViewModel()) 
+}

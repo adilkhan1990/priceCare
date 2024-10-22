@@ -1,0 +1,54 @@
+﻿.m-table-pagination{
+    position: relative;
+    border: 1px solid;
+    border-bottom: 0;
+}
+
+.m-table-pagination-before,
+.m-table-pagination-after{
+    display: inline-block;
+    width: 3em;
+    height: 3em;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.m-table-pagination-before:before,
+.m-table-pagination-after:before{
+    font-family: 'icomoon';
+    /* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+    text-indent: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    font-size: 2em;
+    text-align: center;
+    line-height: 1.6em;
+}
+
+.m-table-pagination-before{
+    float: left;
+    border-right: 1px solid;
+}
+
+.m-table-pagination-before:before{
+    content: '\e60a';
+}
+
+.m-table-pagination-after{
+    float: right;
+    border-left: 1px solid;
+}
+
+.m-table-pagination-after:before{
+    content: '\e60c';
+}
+
+.m-table-pagination-title{
+    text-align: center;
+    display: block;
+    line-height: 2.8em;
+}

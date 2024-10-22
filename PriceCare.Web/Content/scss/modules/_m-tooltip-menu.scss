@@ -1,0 +1,65 @@
+﻿.m-tooltip-menu{
+    z-index: 1010;
+    position: absolute;
+    top: 3em;
+    left: 0;
+
+    padding: 2em 3.4em;
+    width: 24em;
+
+    text-align: left;
+    font-size: 12px;
+
+    @include border-radius(0.25em);
+
+    input[type="text"], a.button, label, .m-custom-select, .m-custom-select-dropdown, .m-custom-select-dropdown-align{
+        width: 100%;
+    }
+
+    .position-close-popup{
+        position: absolute;
+        top: 0.7em;
+        right: 0.5em;
+        overflow: hidden;
+        width: 1.25em;
+        height: 1.25em;
+    }
+
+    .position-close-popup:before{
+        width: 1.25em;
+        height: 1.25em;
+    }
+}
+
+.m-tooltip-menu-arrow{
+    position: absolute;
+    width: 28px;
+    height: 11px;
+    top: -20px;
+    left: 10%;
+
+    font-size: 2em;
+}
+
+.m-tooltip-menu-arrow:before{
+    font-family: 'icomoon';
+    /* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+    content: '\e609';
+
+    position: absolute;
+    width: 28px;
+    height: 11px;
+    top: 8px;
+    left: 10%;
+
+    font-size: 0.75em;
+}
+
+.m-tooltip-menu-smart-resolution{
+    width: 30em;
+    .m-op-field{
+        width: 9.5em;
+    }
+}
