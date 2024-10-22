@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[Invitation]
+(
+	[Id] INT NOT NULL IDENTITY PRIMARY KEY, 
+    [Token] NVARCHAR(MAX) NOT NULL, 
+    [CreatedOn] DATETIME2 NOT NULL, 
+    [UsedOn] DATETIME2 NULL, 
+    [UserId] NVARCHAR(128) NOT NULL, 
+    [Email] NVARCHAR(MAX) NOT NULL
+)

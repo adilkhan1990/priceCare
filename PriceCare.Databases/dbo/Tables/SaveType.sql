@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[SaveType] (
+    [Id]   INT            NOT NULL,
+    [Name] NVARCHAR (MAX) NOT NULL,
+    CONSTRAINT [PK__SaveType__3214EC0737DED159] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+

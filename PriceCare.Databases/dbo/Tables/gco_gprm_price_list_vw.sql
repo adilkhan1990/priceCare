@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[gco_gprm_price_list_vw] (
+    [ID]                         INT            NULL,
+    [REGION]                     NVARCHAR (MAX) NULL,
+    [ORGANIZATION_ID]            NVARCHAR (MAX) NULL,
+    [COUNTRY]                    NVARCHAR (MAX) NULL,
+    [PRICE_LIST_ID]              NVARCHAR (MAX) NULL,
+    [PRICE_LIST_NAME]            NVARCHAR (MAX) NULL,
+    [TYPE_TO_CHANNEL]            NVARCHAR (MAX) NULL,
+    [STATUS_TO_STATUS]           NVARCHAR (MAX) NULL,
+    [PRODUCT_FAMILY]             NVARCHAR (MAX) NULL,
+    [PRODUCT_NUMBER]             NVARCHAR (MAX) NULL,
+    [PRODUCT_NAME]               NVARCHAR (MAX) NULL,
+    [UOM]                        NVARCHAR (MAX) NULL,
+    [STRENGTH]                   FLOAT (53)     NULL,
+    [PACK]                       INT            NULL,
+    [EFFECTIVE_DATE]             DATETIME       NULL,
+    [EXPIRATION_DATE]            DATETIME       NULL,
+    [AVAILABLE_ON_CONTRACTS]     NVARCHAR (MAX) NULL,
+    [AVAILABLE_ON_PRICING_DOCS]  NVARCHAR (MAX) NULL,
+    [PRICELIST_PRICE]            FLOAT (53)     NULL,
+    [PRICELIST_PRICE_MCG]        FLOAT (53)     NULL,
+    [PRICELIST_CURRENCY_TYPE]    NVARCHAR (MAX) NULL,
+    [EXCHANGE_RATE]              FLOAT (53)     NULL,
+    [PRICELIST_PRICE_IN_USD]     FLOAT (53)     NULL,
+    [PRICELIST_PRICE_IN_USD_MCG] FLOAT (53)     NULL
+);
+
